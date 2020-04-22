@@ -1,0 +1,27 @@
+/*nav*/
+.navbar{
+	background-color: #17A2B8;
+	}
+.navbar-brand,.nav-link{
+        color:white !important;
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+    }
+/*jumbo*/
+.jumbotron{
+    
+	background-image: url(assets/foto/Sekolah-3.jpg);
+    height: 400px;
+	
+}
+@media (min-width: 992px){
+	.nav-link:hover::after {
+		content: '';
+		display: block;
+		border-bottom: 3px solid white;
+		margin: auto;
+		padding-bottom: 5px;
+		margin-bottom: -8px;
+
+	}
+}
+
