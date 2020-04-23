@@ -18,4 +18,13 @@ class daftarkelas extends CI_Controller{
         $this->load->view('daftarkelas/xrpl1',$data);
         $this->load->view('tampletes/footer');
     }
+    public function xrpldua()
+    {
+        $data['judul']='Daftar kelas X RPL 2';
+        $data['oop']=$this->daftarkelas_model->xrpl_dua()->result_array();
+
+        $this->load->view('tampletes/header2');
+        $this->load->view('daftarkelas/xrpl2',$data);
+        $this->load->view('tampletes/footer');
+    }
 }
