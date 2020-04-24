@@ -27,4 +27,13 @@ class daftarkelas extends CI_Controller{
         $this->load->view('daftarkelas/xrpl2',$data);
         $this->load->view('tampletes/footer');
     }
+    public function xirplsatu()
+    {
+        $data['judul']='Daftar kelas Xi RPL satu';
+        $data['oop']=$this->daftarkelas_model->xirpl_satu()->result_array();
+
+        $this->load->view('tampletes/header2');
+        $this->load->view('daftarkelas/xirpl1',$data);
+        $this->load->view('tampletes/footer');
+    }
 }

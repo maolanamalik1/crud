@@ -39,7 +39,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xrpldua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -56,7 +56,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xirplsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
