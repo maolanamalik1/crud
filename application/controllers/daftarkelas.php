@@ -227,4 +227,43 @@ class daftarkelas extends CI_Controller{
         $this->load->view('tampletes/footer');
     }
 
+    
+    public function printxrplsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xrpl_satu()->result_array();
+
+        $this->load->view('print/xrpl1',$data);
+    }
+    public function printxrpldua()
+    {
+        $data['oop']=$this->daftarkelas_model->xrpl_dua()->result_array();
+
+        $this->load->view('print/xrpl2',$data);
+    }
+    public function printxirplsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xirpl_satu()->result_array();
+
+        $this->load->view('print/xirpl1',$data);
+    }
+    public function printxirpldua()
+    {
+        $data['oop']=$this->daftarkelas_model->xirpl_dua()->result_array();
+
+        $this->load->view('print/xirpl2',$data);
+    }
+    public function printxiirplsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xiirpl_satu()->result_array();
+
+        $this->load->view('print/xiirpl1',$data);
+    }
+    public function printxiirpldua()
+    {
+        $data['oop']=$this->daftarkelas_model->xiirpl_dua()->result_array();
+
+        $this->load->view('print/xiirpl2',$data);
+    }
+
+
 }

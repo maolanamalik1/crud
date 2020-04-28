@@ -4,10 +4,15 @@
     <title><?php echo $judul;?></title>
       <div class="row">
         <div class="col-md-12 mt-2">
-            <h3 class="mt-3">Daftar siswa kelas 10 RPL 1</h3>
+            <h3 class="mt-3">Daftar siswa kelas 11 RPL 2</h3>
         </div>
       </div>
       <!--akhir judul-->
+      <div class="row mt-4">
+        <div class="col-md-5">
+        <a href="<?=base_url(); ?>daftarkelas/printxirpldua" class="btn btn-warning">print absen</a>
+        </div>
+      </div>
             <!--table-->
     <div class="row">
         <div class="col-md-11 mt-3">

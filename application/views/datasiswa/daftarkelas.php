@@ -73,7 +73,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xirpldua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -94,7 +94,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiirplsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -111,7 +111,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiirpldua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -128,7 +128,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xtbgsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -145,7 +145,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xtbgdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -166,7 +166,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xitbgsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -183,7 +183,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xitbgdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -200,7 +200,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiitbgsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -217,7 +217,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiitbgdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -238,7 +238,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xtbssatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -255,7 +255,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xtbsdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -272,7 +272,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xitbssatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -289,7 +289,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xitbsdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -310,7 +310,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiitbssatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -327,7 +327,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiitbsdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -344,7 +344,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xphsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -361,7 +361,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xphdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -382,7 +382,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiphsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -399,7 +399,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiphdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -416,7 +416,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiiphsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
@@ -433,7 +433,7 @@
               <div class="icon">
                 <i class="fas fa-user-plus"></i>
               </div>
-              <a href="<?=base_url(); ?>datasiswa" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?=base_url(); ?>daftarkelas/xiiphdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
             <!---->
       </div>
