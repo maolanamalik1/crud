@@ -264,6 +264,113 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('print/xiirpl2',$data);
     }
+    public function printxtbgsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xtbg_satu()->result_array();
 
+        $this->load->view('print/xtbg1',$data);
+    }
+    public function printxtbgdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xtbg_dua()->result_array();
+
+        $this->load->view('print/xtbg2',$data);
+    }
+    public function printxitbgsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xtbg_satu()->result_array();
+
+        $this->load->view('print/xitbg1',$data);
+    }
+    public function printxitbgdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xtbg_dua()->result_array();
+
+        $this->load->view('print/xitbg2',$data);
+    }
+    public function printxiitbgsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xiitbg_satu()->result_array();
+
+        $this->load->view('print/xiitbg1',$data);
+    }
+    public function printxiitbgdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xiitbg_dua()->result_array();
+
+        $this->load->view('print/xiitbg2',$data);
+    }
+    public function printxtbssatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xtbs_satu()->result_array();
+
+        $this->load->view('print/xtbs1',$data);
+    }
+    public function printxtbsdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xtbs_dua()->result_array();
+
+        $this->load->view('print/xtbs2',$data);
+    }
+    public function printxitbssatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xitbs_satu()->result_array();
+
+        $this->load->view('print/xitbs1',$data);
+    }
+    public function printxitbsdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xitbs_dua()->result_array();
+
+        $this->load->view('print/xitbs2',$data);
+    }
+    public function printxiitbssatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xiitbs_satu()->result_array();
+
+        $this->load->view('print/xiitbs1',$data);
+    }
+    public function printxiitbsdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xiitbs_dua()->result_array();
+
+        $this->load->view('print/xiitbs2',$data);
+    }
+    public function printxphsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xph_satu()->result_array();
+
+        $this->load->view('print/xph1',$data);
+    }
+    public function printxphdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xph_dua()->result_array();
+
+        $this->load->view('print/xph2',$data);
+    }
+    public function printxiphsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xiph_satu()->result_array();
+
+        $this->load->view('print/xiph1',$data);
+    }
+    public function printxiphdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xiph_dua()->result_array();
+
+        $this->load->view('print/xiph2',$data);
+    }
+    public function printxiiphsatu()
+    {
+        $data['oop']=$this->daftarkelas_model->xiiph_satu()->result_array();
+
+        $this->load->view('print/xiiph1',$data);
+    }
+    public function printxiiphdua()
+    {
+        $data['oop']=$this->daftarkelas_model->xiiph_dua()->result_array();
+
+        $this->load->view('print/xiiph2',$data);
+    }
 
 }
