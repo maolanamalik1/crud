@@ -29,16 +29,37 @@ class Auth extends CI_Controller{
         $username= $this->input->post('username');
         $passwod = $this->input->post('passwod');
 
+
+        $guru=$this->db->get_where('guru',['username'=>$username])->row_array();
+        $guru=$this->db->get_where('guru',['passwod'=>$passwod])->row_array();
+        $siswa=$this->db->get_where('user',['username'=>$username])->row_array();
+        $siswa=$this->db->get_where('user',['passwod'=>$passwod])->row_array();
         $oop=$this->db->get_where('login',['username'=>$username])->row_array();
         $oop=$this->db->get_where('login',['passwod'=>$passwod])->row_array();
         
         
-        if($oop['level'] == 1){
+        if($oop){
+            $data = [
+                'username' => $oop['username'],
+            ];
+            $this->session->set_userdata($data);
             redirect('Home');
 
         }
-        if($oop['level'] == 2){
+        if($siswa){
+            $data = [
+                'nama' => $siswa['nama'],
+            ];
+            $this->session->set_userdata($data);
             redirect('homeuser');
+
+        }
+        if($guru){
+            $data = [
+                'nama' => $guru['nama'],
+            ];
+            $this->session->set_userdata($data);
+            redirect('homeguru');
 
         }
         else{

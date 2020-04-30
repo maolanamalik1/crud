@@ -8,6 +8,11 @@
         </div>
       </div>
       <!--akhir judul-->
+      <div class="row mt-4">
+        <div class="col-md-5">
+        <a href="<?=base_url(); ?>daftarkelas/printxiitbgdua" class="btn btn-warning">print absen</a>
+        </div>
+      </div>
             <!--table-->
     <div class="row">
         <div class="col-md-11 mt-3">
