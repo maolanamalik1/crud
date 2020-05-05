@@ -50,12 +50,6 @@
           </div>
         </div>
     <!--akhir pilih mapel--> 
-      <!--tambah siswa-->
-      <div class="row mt-4">
-        <div class="col-md-5">
-        <a href="<?=base_url(); ?>dataguru/tambah" class="btn btn-primary">+ Tambah Data Guru</a>
-        </div>
-      </div>
       <!--khir tambah siswa-->
             <!--validasi-->
       <?php if($this->session->flashdata('flash')) : ?>

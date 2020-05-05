@@ -98,14 +98,6 @@
                     <label for="nis">nis</label>
                     <input type="text" name="nis"class="form-control" id="nis" value="<?= $oop['nis']; ?>">
                 </div>
-            <div class="form-group">
-                    <label for="username">username</label>
-                    <input type="text" name="username"class="form-control" id="username" value="<?= $oop['username']; ?>">
-                </div>
-            <div class="form-group">
-                    <label for="passwod">password</label>
-                    <input type="text" name="passwod"class="form-control" id="passwod" value="<?= $oop['passwod']; ?>">
-                </div>
                 <div class="form-group">
                     <label for="foto">ubah foto</label>
                     <input type="hidden" name="file_lama" value="<?= $oop['foto']; ?>">

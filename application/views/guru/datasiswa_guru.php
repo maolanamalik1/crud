@@ -63,13 +63,6 @@
           </div>
         </div>
       <!--akhir pilh kelas-->
-      <!--tambah siswa-->
-      <div class="row mt-4">
-        <div class="col-md-5">
-        <a href="<?=base_url(); ?>Tambah/tambah" class="btn btn-primary">+ Tambah Data Siswa</a>
-        </div>
-      </div>
-      <!--khir tambah siswa-->
       <!--validasi-->
       <?php if($this->session->flashdata('flash')) : ?>
       <div class="row mt-3">
@@ -120,11 +113,6 @@
                           <a class="badge badge-primary btn-sm" href="<?= base_url(); ?>siswaguru/editscore/<?=$mhs['absen'];?>">
                           
                              edit Score
-                          </a>
-                          <a class="badge badge-danger btn-sm" href="<?= base_url(); ?>siswaguru/hapus/<?= $mhs['absen']; ?>" onclick="return confirm('Anda yakin?');">
-                              
-                              </i>
-                              Delete
                           </a>
                     </td>
                 </tr>
