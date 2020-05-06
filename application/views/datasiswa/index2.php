@@ -117,13 +117,9 @@
                           
                              edit
                           </a>
-                          <a class="badge badge-primary btn-sm" href="<?= base_url(); ?>datasiswa/editscore/<?=$mhs['absen'];?>">
-                          
-                             edit Score
-                          </a>
                           <a class="badge badge-danger btn-sm" href="<?= base_url(); ?>datasiswa/hapus/<?= $mhs['absen']; ?>" onclick="return confirm('Anda yakin?');">
                               
-                              </i>
+                              
                               Delete
                           </a>
                     </td>

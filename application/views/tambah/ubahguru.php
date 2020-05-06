@@ -76,6 +76,14 @@
                     <textarea class="form-control" name="alamat" id="alamat" rows="3"><?= $oop['alamat']; ?></textarea>
                 </div>
                 <div class="form-group">
+                    <label for="username">Usernama</label>
+                    <input type="text" name="username" class="form-control" id="username" value="<?= $oop['username']; ?>">
+                </div>
+                <div class="form-group">
+                    <label for="passwod">password</label>
+                    <input type="text" name="passwod" class="form-control" id="passwod" value="<?= $oop['passwod']; ?>">
+                </div>
+                <div class="form-group">
                     <label for="foto">ubah foto</label>
                     <input type="file" name="foto" class="form-control" id="foto">
                 </div>

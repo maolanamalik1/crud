@@ -75,7 +75,7 @@
          
         </div>
         <div class="info">
-          <a href="#" class="d-block">Admin</a>
+          <a href="#" class="d-block"><?php echo $this->session->userdata('username'); ?></a>
         </div>
       </div>
 
@@ -91,15 +91,10 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="<?=base_url(); ?>datasiswa/daftarkelas" class="nav-link">
-            <i class='fas fa-book' style='font-size:20px'></i>
-              <p> Daftar Kelas</p>
-            </a>
-          </li>
+
           <li class="nav-item">
             <a href="<?=base_url(); ?>datasiswa" class="nav-link">
-            <i class='fas fa-book' style='font-size:20px'></i>
+            <i class='fas fa-user-plus' style='font-size:20px'></i>
               <p> Data Siswa</p>
             </a>
           </li>

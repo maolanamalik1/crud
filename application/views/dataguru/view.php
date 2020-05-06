@@ -33,13 +33,15 @@
             </tr>
             <tr>
             <th>Foto :</th>
-            <td></td>
+            <td><img src="<?=base_url(); ?>assets/foto/<?= $oop['foto']; ?>" width="80" height="110"></td>
             </tr>
             <tr>
-            <td>
-            <img src="<?=base_url(); ?>assets/foto/<?= $oop['foto']; ?>" width="90" height="110">
-            </td>
-            <td></td>
+            <th>username :</th>
+            <td><?= $oop['username'];?></td>
+            </tr>
+            <tr>
+            <th>password :</th>
+            <td><?= $oop['passwod'];?></td>
             </tr>
             </table>
     </section>
