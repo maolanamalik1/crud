@@ -78,7 +78,18 @@ class siswaguru extends CI_Controller{
 
 
     }
+    public function raport(){
+        $data['oop'] = $this->datasiswa_model->Joinpilihsiswa();
 
+        if($this->input->post('keyword'))
+        {
+            $data['oop']= $this->datasiswa_model->cariRaportsiswa();
+        }
+
+        $this->load->view('tampleteguru/header');
+        $this->load->view('guru/raportsiswa_siswa',$data);
+        $this->load->view('tampleteguru/footer');
+    }
     public function edit($absen)
     {
         $data['jurusan'] = ['rekayasa perangkat lunak', 'tata busana', 'tata boga','perhotelan', 'Perjalanan wisata'];
@@ -119,5 +130,13 @@ class siswaguru extends CI_Controller{
             $this->session->set_flashdata('flash','ditambahkan');
             redirect('siswaguru');
         }
+    }
+    public function daftarkelas()
+    {
+        $data['judul'] = 'Daftar Kelas';
+
+        $this->load->view('tampleteguru/header');
+        $this->load->view('datasiswa/daftarkelas',$data);
+        $this->load->view('tampleteguru/footer');
     }
 }

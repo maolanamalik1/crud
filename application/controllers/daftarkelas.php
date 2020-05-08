@@ -14,16 +14,16 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas X RPL 1';
         $data['oop']=$this->daftarkelas_model->xrpl_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xrpl1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xrpldua()
     {
         $data['judul']='Daftar kelas X RPL 2';
         $data['oop']=$this->daftarkelas_model->xrpl_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xrpl2',$data);
         $this->load->view('tampletes/footer');
     }
@@ -32,7 +32,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas Xi RPL satu';
         $data['oop']=$this->daftarkelas_model->xirpl_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xirpl1',$data);
         $this->load->view('tampletes/footer');
     }
@@ -41,7 +41,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas Xi RPL dua';
         $data['oop']=$this->daftarkelas_model->xirpl_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xirpl2',$data);
         $this->load->view('tampletes/footer');
     }
@@ -50,7 +50,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas Xii RPL satu';
         $data['oop']=$this->daftarkelas_model->xiirpl_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiirpl1',$data);
         $this->load->view('tampletes/footer');
     }
@@ -59,7 +59,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas Xii RPL dua';
         $data['oop']=$this->daftarkelas_model->xiirpl_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiirpl2',$data);
         $this->load->view('tampletes/footer');
     }
@@ -68,7 +68,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas X TBG satu';
         $data['oop']=$this->daftarkelas_model->xtbg_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xtbg1',$data);
         $this->load->view('tampletes/footer');
     }
@@ -77,7 +77,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas X TBG dua';
         $data['oop']=$this->daftarkelas_model->xtbg_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xtbg2',$data);
         $this->load->view('tampletes/footer');
     }
@@ -86,7 +86,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas XI TBG satu';
         $data['oop']=$this->daftarkelas_model->xitbg_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xitbg1',$data);
         $this->load->view('tampletes/footer');
     }
@@ -95,7 +95,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas XI TBG dua';
         $data['oop']=$this->daftarkelas_model->xitbg_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xitbg2',$data);
         $this->load->view('tampletes/footer');
     }
@@ -104,7 +104,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas XII TBG satu';
         $data['oop']=$this->daftarkelas_model->xiitbg_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiitbg1',$data);
         $this->load->view('tampletes/footer');
     }
@@ -114,7 +114,7 @@ class daftarkelas extends CI_Controller{
         $data['judul']='Daftar kelas XII TBG dua';
         $data['oop']=$this->daftarkelas_model->xiitbg_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiitbg2',$data);
         $this->load->view('tampletes/footer');
     }

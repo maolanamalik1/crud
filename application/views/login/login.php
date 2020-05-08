@@ -48,7 +48,7 @@
       </form>
 
       <p class="mb-1">
-        <p>admin <br>username:admin<br>pw:admin<br>user<br>username:adam<br>pw:adam</p>
+        <p>admin <br>username:admin<br>pw:admin</p>
       </p>
       <p class="mb-0">
         <a href="<?=base_url(); ?>Auth/register/" class="text-center">Register</a>
