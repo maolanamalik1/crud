@@ -87,8 +87,14 @@
           <li class="nav-header">PILIH DATA</li>
           <li class="nav-item">
             <a href="<?=base_url(); ?>homeguru" class="nav-link">
-            <i class='fas fa-home' style='font-size:20px'></i>
+            <i class='fas fa-home' style='font-size:18px'></i>
               <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?=base_url(); ?>siswaguru/daftarkelas" class="nav-link">
+            <i class="fa fa-address-book" style='font-size:20px'></i>
+              <p> Daftar Kelas</p>
             </a>
           </li>
           <li class="nav-item">
@@ -106,7 +112,7 @@
           </li>
           <li class="nav-item">
             <a href="<?=base_url(); ?>guruguru" class="nav-link">
-            <i class='fas fa-briefcase' style='font-size:20px'></i>
+            <i class="fa fa-user-circle" style='font-size:20px'></i>
               <p>Data Guru</p>
             </a>
           </li>

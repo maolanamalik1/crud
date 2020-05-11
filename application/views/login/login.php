@@ -9,6 +9,7 @@
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg"></p> 
+      <?= $this->session->flashdata('message'); ?>
       <?php if (validation_errors() ) : ?>
           <?= validation_errors(); ?>
           <?php endif; ?>

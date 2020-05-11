@@ -25,7 +25,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xrpl2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xirplsatu()
     {
@@ -34,7 +34,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xirpl1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xirpldua()
     {
@@ -43,7 +43,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xirpl2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiirplsatu()
     {
@@ -52,7 +52,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiirpl1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiirpldua()
     {
@@ -61,7 +61,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiirpl2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xtbgsatu()
     {
@@ -70,7 +70,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xtbg1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xtbgdua()
     {
@@ -79,7 +79,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xtbg2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xitbgsatu()
     {
@@ -88,7 +88,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xitbg1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xitbgdua()
     {
@@ -97,7 +97,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xitbg2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiitbgsatu()
     {
@@ -106,7 +106,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiitbg1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
  
     public function xiitbgdua()
@@ -116,25 +116,25 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiitbg2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xtbssatu()
     {
         $data['judul']='Daftar kelas X TBS satu';
         $data['oop']=$this->daftarkelas_model->xtbs_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xtbs1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xtbsdua()
     {
         $data['judul']='Daftar kelas X TBS dua';
         $data['oop']=$this->daftarkelas_model->xtbs_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xtbs2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xitbssatu()
     {

@@ -44,7 +44,11 @@ class Auth extends CI_Controller{
             $this->session->set_userdata($data);
             redirect('Home');
         }else{
-            echo "password salah";
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
+            password salah
+          </div>');
+          redirect('Auth/login');
+          
         }
 
         }
@@ -57,7 +61,10 @@ class Auth extends CI_Controller{
             $this->session->set_userdata($data);
             redirect('homeuser');
         }else{
-            echo "password salah";
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
+            password salah
+          </div>');
+          redirect('Auth/login');
         }
 
         }
@@ -70,20 +77,25 @@ class Auth extends CI_Controller{
             $this->session->set_userdata($data);
             redirect('homeguru');
         }else{
-            echo "password salah";
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
+            password salah
+          </div>');
+          redirect('Auth/login');
         }
 
         }
         else{
-            echo "akun ini tidak terdaftar";
+            $this->session->set_flashdata('message','<div class="alert alert-danger" role="alert">
+            Username salah
+          </div>');
+          redirect('Auth/login');
         }
     }
     
     
     public function register()
     {
-        $this->form_validation->set_rules('name','name','required|trim');
-        $this->form_validation->set_rules('username','username','required|trim');
+        $this->form_validation->set_rules('nama','nama','required|trim');
         
         
         
@@ -137,9 +149,10 @@ class Auth extends CI_Controller{
         'foto' => $foto,
     
     );
-    
-            $this->db->where('absen',$absen);
-            $this->db->update('user', $data);
+    $this->db->insert('user',$data);;
+    $this->session->set_flashdata('message','<div class="alert alert-success" role="alert">
+    registrasi berhasil
+  </div>');
                redirect("Auth/login");
            } 
 
