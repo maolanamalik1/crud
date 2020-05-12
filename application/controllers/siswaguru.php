@@ -79,6 +79,7 @@ class siswaguru extends CI_Controller{
 
     }
     public function raport(){
+        $data['judul'] = 'Raport siswa';
         $data['oop'] = $this->datasiswa_model->Joinpilihsiswa();
 
         if($this->input->post('keyword'))
@@ -86,7 +87,7 @@ class siswaguru extends CI_Controller{
             $data['oop']= $this->datasiswa_model->cariRaportsiswa();
         }
 
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/raportsiswa_siswa',$data);
         $this->load->view('tampleteguru/footer');
     }
@@ -114,22 +115,51 @@ class siswaguru extends CI_Controller{
             redirect('siswaguru');
         }
     }
-    public function editscore($absen){
-        $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
-    
-        $this->form_validation->set_rules('n_islam','n_islam','required');
-        
+    public function tambahnilai()
+    {
+        $this->form_validation->set_rules('id_siswa','id_siswa','required');
+
+
         if ($this->form_validation->run() == FALSE){
-        
-            $this->load->view('tampleteguru/header');
-            $this->load->view('guru/editscoresiswa_guru',$data);
-            $this->load->view('tampleteguru/footer');
-            }
-        else{
-            $this->datasiswa_model->editscoresiswa($absen);
-            $this->session->set_flashdata('flash','ditambahkan');
-            redirect('siswaguru');
+
+        $this->load->view('tampleteguru/header');
+        $this->load->view('guru/tambahnilai_guru');
+        $this->load->view('tampleteguru/footer');
         }
+
+        else{
+            $this->datasiswa_model->tambahNilaisiswa($data);
+            $this->session->set_flashdata('flash','ditambahkan');
+            redirect('siswaguru/raport');; 
+        }
+    }
+    public function editnilai($id)
+    {
+        $data['oop'] = $this->datasiswa_model->getDatanilaiByid($id);
+        $this->form_validation->set_rules('id_siswa','id_siswa','required');
+
+
+        if ($this->form_validation->run() == FALSE){
+
+        $this->load->view('tampleteguru/header');
+        $this->load->view('guru/editnilai_guru',$data);
+        $this->load->view('tampleteguru/footer');
+        }
+
+        else{
+            $this->datasiswa_model->editNilaisiswa($id);
+            $this->session->set_flashdata('flash','diedit');
+            redirect('siswaguru/raport');; 
+        }
+    }
+    public function hapus($id)
+    {
+        $this->load->database();
+        $this->load->model('datasiswa_model');
+        $this->datasiswa_model->hapusDataNilai($id);
+        $this->session->set_flashdata('flash','dihapus');
+        redirect('siswaguru/raport');
+
     }
     public function daftarkelas()
     {

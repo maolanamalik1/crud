@@ -26,7 +26,7 @@
       <!--tambah siswa-->
       <div class="row mt-4">
         <div class="col-md-5">
-        <a href="<?=base_url(); ?>Tambah/tambah" class="btn btn-primary">+ Tambah nilai raport</a>
+        <a href="<?=base_url(); ?>siswaguru/tambahnilai" class="btn btn-primary">+ Tambah nilai raport</a>
         </div>
       </div>
       <!--khir tambah siswa-->
@@ -52,8 +52,8 @@
                 <tr>
                   <th scope="col">id</th>
                   <th scope="col">Absen</th>
-                  <th scope="col">Foto</th>
                   <th scope="col">Nama</th>
+                  <th scope="col">Mapel</th>
                   <th scope="col">Nilai p</th>
                   <th scope="col">kkm p</th>
                   <th scope="col">nilai k</th>
@@ -75,7 +75,7 @@
                   <td><?= $mhs['n_k'] ?></td>
                   <td><?= $mhs['kkm_k'] ?></td>
                     <td>
-                          <a class="badge badge-warning btn-sm" href="<?= base_url(); ?>siswaguru/edit/<?=$mhs['id'];?>">
+                          <a class="badge badge-warning btn-sm" href="<?= base_url(); ?>siswaguru/editnilai/<?=$mhs['id'];?>">
                           
                              edit
                           </a>

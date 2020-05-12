@@ -78,23 +78,43 @@ $data = array(
         $this->db->like('kelas',$pilih);
         return $this->db->get('user')->result_array();
     }
-    public function ubahDatasiswaByabsen($absen)
+    public function tambahNilaisiswa($data)
     {
         $data =[
-            "nama" =>$this->input->post('nama',true),
-            "email" =>$this->input->post('email',true),
-            "kelamin" =>$this->input->post('kelamin',true),
-            "jurusan" =>$this->input->post('jurusan',true),
-            "agama" =>$this->input->post('agama',true),
-            "alamat" =>$this->input->post('alamat',true),
-            "nis" =>$this->input->post('nis',true),
+            "id_siswa" =>$this->input->post('id_siswa',true),
+            "ma_pel" =>$this->input->post('ma_pel',true),
+            "n_p" =>$this->input->post('n_p',true),
+            "kkm_p" =>$this->input->post('kkm_p',true),
+            "n_k" =>$this->input->post('n_k',true),
+            "kkm_k" =>$this->input->post('kkm_k',true),
             
             
 
         ];
 
-        $this->db->where('absen',$absen);
-        $this->db->update('user', $data);
+        $this->db->insert('nilai', $data);
+    }
+    public function editNilaisiswa($id)
+    {
+        $data =[
+            "id_siswa" =>$this->input->post('id_siswa',true),
+            "ma_pel" =>$this->input->post('ma_pel',true),
+            "n_p" =>$this->input->post('n_p',true),
+            "kkm_p" =>$this->input->post('kkm_p',true),
+            "n_k" =>$this->input->post('n_k',true),
+            "kkm_k" =>$this->input->post('kkm_k',true),
+            
+            
+
+        ];
+
+        $this->db->where('id',$id);
+        $this->db->update('nilai', $data);
+    }
+    public function hapusDataNilai($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('nilai');
     }
     public function editDatasiswaByabsen($absen)
     {
@@ -107,6 +127,8 @@ $data = array(
         $agama = $this->input->post('agama');
         $alamat = $this->input->post('alamat');
         $nis = $this->input->post('nis');
+        $username = $this->input->post('username');
+        $passwod = $this->input->post('passwod');
         $foto = $_FILES['foto'];
         if($foto='')
     {
@@ -135,6 +157,8 @@ $data = array(
     'agama' => $agama,
     'alamat' => $alamat,
     'nis' => $nis,
+    'username' => $username,
+    'passwod' => $passwod,
     'foto' => $foto,
 
 );
@@ -203,9 +227,31 @@ $data = array(
     }
     public function JoinNilaiuser(){
         $this->db->select('*');
-        $this->db->from('user b');
-        $this->db->join('nilai u','u.id_siswa = b.absen');
+        $this->db->from('nilai b');
+        $this->db->join('user u','u.absen = b.id_siswa');
         $query=$this->db->get_where();
         return $query->result_array();
+    }
+    public function Joinpilihsiswa(){
+        $this->db->select('*');
+        $this->db->from('user b');
+        $this->db->join('nilai u','b.absen = u.id_siswa');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
+
+
+    public function getraportSiswabyabsen()
+    {
+        $this->db->select('*');
+        $this->db->from('user b');
+        $this->db->where('absen');
+        $this->db->join('nilai u','b.absen = u.id_siswa');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
+    public function getDatanilaibyid($id)
+    {
+        return $this->db->get_where('nilai',['id'=>$id])->row_array();
     }
 }
