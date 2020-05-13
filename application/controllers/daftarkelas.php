@@ -143,7 +143,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xitbs1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xitbsdua()
     {
@@ -152,7 +152,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xitbs2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiitbssatu()
     {
@@ -161,7 +161,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiitbs1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiitbsdua()
     {
@@ -170,7 +170,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiitbs2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xphsatu()
     {
@@ -179,7 +179,7 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xph1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xphdua()
     {
@@ -188,43 +188,43 @@ class daftarkelas extends CI_Controller{
 
         $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xph2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiphsatu()
     {
         $data['judul']='Daftar kelas XI PH satu';
         $data['oop']=$this->daftarkelas_model->xiph_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiph1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiphdua()
     {
         $data['judul']='Daftar kelas XI PH dua';
         $data['oop']=$this->daftarkelas_model->xiph_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiph2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiiphsatu()
     {
         $data['judul']='Daftar kelas XII PH satu';
         $data['oop']=$this->daftarkelas_model->xiiph_satu()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiiph1',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
     public function xiiphdua()
     {
         $data['judul']='Daftar kelas XII PH dua';
         $data['oop']=$this->daftarkelas_model->xiiph_dua()->result_array();
 
-        $this->load->view('tampletes/header2');
+        $this->load->view('tampleteguru/header');
         $this->load->view('daftarkelas/xiiph2',$data);
-        $this->load->view('tampletes/footer');
+        $this->load->view('tampleteguru/footer');
     }
 
     

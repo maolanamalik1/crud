@@ -54,6 +54,12 @@
                     <option>11 PERHOTELAN 2</option>
                     <option>12 PERHOTELAN 1</option>
                     <option>12 PERHOTELAN 2</option>
+                    <option>10 USAHA PERJALANAN WISATA 1</option>
+                    <option>10 USAHA PERJALANAN WISATA 2</option>
+                    <option>11 USAHA PERJALANAN WISATA 1</option>
+                    <option>11 USAHA PERJALANAN WISATA 2</option>
+                    <option>12 USAHA PERJALANAN WISATA 1</option>
+                    <option>12 USAHA PERJALANAN WISATA 2</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-outline-primary" type="submit">pilih</button>
@@ -109,10 +115,6 @@
                           <a class="badge badge-warning btn-sm" href="<?= base_url(); ?>siswaguru/edit/<?=$mhs['absen'];?>">
                           
                              edit
-                          </a>
-                          <a class="badge badge-primary btn-sm" href="<?= base_url(); ?>siswaguru/editscore/<?=$mhs['absen'];?>">
-                          
-                             edit Score
                           </a>
                     </td>
                 </tr>

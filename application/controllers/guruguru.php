@@ -66,7 +66,7 @@ class guruguru extends CI_Controller{
 
         $data['oop'] = $this->Dataguru_model->getDataGuruByid($id);
         $this->load->view('tampleteguru/header');
-        $this->load->view('dataguru/view',$data);
+        $this->load->view('guru/viewguru_guru',$data);
         $this->load->view('tampleteguru/footer');
         
 
