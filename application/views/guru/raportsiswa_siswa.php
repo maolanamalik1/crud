@@ -8,20 +8,6 @@
         </div>
       </div>
       <!--akhir judul-->
-      <!--sarch-->
-            <div class="row mt-3">
-               <div class="col-md-10">
-                  <form action="" method="post">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Masukan nama lengkap siswa atau id siswanya..." name="keyword">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="Submit" id="button-addon2">Cari</button>
-                      </div>
-                    </div>
-                  </form>
-               </div> 
-            </div>
-      <!--akhir search-->
 
       <!--tambah siswa-->
       <div class="row mt-4">
@@ -51,8 +37,6 @@
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">id</th>
-                  <th scope="col">Absen</th>
-                  <th scope="col">Nama</th>
                   <th scope="col">Mapel</th>
                   <th scope="col">Nilai p</th>
                   <th scope="col">kkm p</th>
@@ -67,8 +51,6 @@
                   foreach( $oop as $mhs ) : ?>
                 <tr>
                   <th><?= $no++ ?></th>
-                  <th><?= $mhs['absen2'] ?></th>
-                  <td><?= $mhs['nama'] ?></td>
                   <td><?= $mhs['ma_pel'] ?></td>
                   <td><?= $mhs['n_p'] ?></td>
                   <td><?= $mhs['kkm_p'] ?></td>

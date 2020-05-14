@@ -239,13 +239,22 @@ $data = array(
         $query=$this->db->get_where();
         return $query->result_array();
     }
+    public function cariRaportsiswa()
+    {
+        $keyword = $this->input->post('keyword',true);
+        $this->db->like('nama', $keyword);
+        $this->db->or_like('id_siswa', $keyword);
+        $this->db->from('user b');
+        $this->db->join('nilai u','b.absen = u.id_siswa');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
 
-
-    public function getraportSiswabyabsen()
+    public function getraportSiswabyabsen($absen)
     {
         $this->db->select('*');
         $this->db->from('user b');
-        $this->db->where('absen');
+        $this->db->where('absen',$absen);
         $this->db->join('nilai u','b.absen = u.id_siswa');
         $query=$this->db->get_where();
         return $query->result_array();
