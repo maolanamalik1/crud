@@ -69,6 +69,20 @@
           </div>
         </div>
       <!--akhir pilh kelas-->
+            <!--validasi-->
+            <?php if($this->session->flashdata('flash')) : ?>
+      <div class="row mt-3">
+        <div class="col-sm-11">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">Raport siswa
+            <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
+      <!--akhir vali-->
       <!--table-->
       <div class="row">
         <div class="col-md-11">
@@ -97,6 +111,10 @@
                           <a class="badge badge-success btn-sm" href="<?= base_url(); ?>siswaguru/raport/<?=$mhs['absen'];?>">
                           
                              Raport
+                          </a>
+                          <a class="badge badge-warning btn-sm" href="<?= base_url(); ?>siswaguru/printraport/<?=$mhs['absen'];?>">
+                          
+                            print Raport
                           </a>
                     </td>
                 </tr>

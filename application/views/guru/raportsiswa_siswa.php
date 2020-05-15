@@ -11,7 +11,7 @@
 
       <!--tambah siswa-->
       <div class="row mt-4">
-        <div class="col-md-5">
+        <div class="col-md-2">
         <a href="<?=base_url(); ?>siswaguru/tambahnilai" class="btn btn-primary">+ Tambah nilai raport</a>
         </div>
       </div>

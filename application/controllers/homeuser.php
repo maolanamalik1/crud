@@ -12,9 +12,9 @@ class homeuser extends CI_Controller{
 
 
         
-        $data['oop'] = $this->datasiswa_model->getallDatasiswa();
+        $data['oop'] = $this->datasiswa_model->raportSiswa();
         $this->load->view('tampletes user/header', $data);
+        $this->load->view('user/dashbord_user',$data);
         $this->load->view('tampletes user/footer');
-        $this->load->view('user/dashbord_user');
     }
 }

@@ -69,6 +69,7 @@ $data = array(
     {
         $keyword = $this->input->post('keyword',true);
         $this->db->like('nama', $keyword);
+        $this->db->or_like('absen', $keyword);
         $this->db->or_like('jurusan', $keyword);
         return $this->db->get('user')->result_array();
     }
@@ -249,7 +250,15 @@ $data = array(
         $query=$this->db->get_where();
         return $query->result_array();
     }
-
+    public function raportSiswa()
+    {
+        $this->db->select('*');
+        $this->db->from('user b');
+        $this->db->where('absen',$this->session->userdata('absen'));
+        $this->db->join('nilai u','b.absen = u.id_siswa');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
     public function getraportSiswabyabsen($absen)
     {
         $this->db->select('*');
