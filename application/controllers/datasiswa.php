@@ -115,27 +115,7 @@ class datasiswa extends CI_Controller{
         redirect('datasiswa');
     }
     }
-    public function editscore($absen)
-    {
-        $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
 
-        $this->form_validation->set_rules('n_islam','n_islam','required');
-
-        if ($this->form_validation->run() == FALSE){
-
-            $this->load->view('tampletes/header2');
-            $this->load->view('data/editscore',$data);
-            $this->load->view('tampletes/footer');
-        }
-        else{
-            $this->datasiswa_model->editscoresiswa($absen);
-            $this->session->set_flashdata('flash','ditambahkan');
-            redirect('datasiswa');
-        }
-    }
-
-
-    
     public function pdf()
     {
         $this->load->library('dompdf_gen');
@@ -150,69 +130,6 @@ class datasiswa extends CI_Controller{
         $this->dompdf->load_html($html);
         $this->dompdf->render();
         $this->dompdf->strim("laporan_datasiswa.pdf",array('Attachment' =>0));
-
-    }
-    public function excel()
-    {
-        $this->load->model('datasiswa_model');
-        $data['oop'] = $this->datasiswa_model->getallDatasiswa();
-
-        require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel.php');
-        require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
-
-        $object = new PHPExcel();
-        $object->getProperties()->setCreator("Maolana malik");
-        $object->getProperties()->setLastModifiedBy("User");
-        $object->getProperties()->setTitle("Data Siswa");
-
-        $object->setActiveSheetIndex(0);
-
-        $object->getActiveSheet()->setCellValue('A1','NO');
-        $object->getActiveSheet()->setCellValue('A1','absen');
-        $object->getActiveSheet()->setCellValue('A1','Nama');
-        $object->getActiveSheet()->setCellValue('A1','Email');
-        $object->getActiveSheet()->setCellValue('A1','Kelamin');
-        $object->getActiveSheet()->setCellValue('A1','Jurusan');
-        $object->getActiveSheet()->setCellValue('A1','Agama');
-        $object->getActiveSheet()->setCellValue('A1','Alamat');
-        $object->getActiveSheet()->setCellValue('A1','Nis');
-        
-        $baris = 2;
-        $no = 1;
-
-        foreach( $oop as $mhs ){
-
-            $object->getActiveSheet()->setCellValue('A',$baris,$no++);
-            $object->getActiveSheet()->setCellValue('B',$baris,$mhs->absen);
-            $object->getActiveSheet()->setCellValue('C',$baris,$mhs->email);
-            $object->getActiveSheet()->setCellValue('D',$baris,$mhs->kelamin);
-            $object->getActiveSheet()->setCellValue('E',$baris,$mhs->jurusan);
-            $object->getActiveSheet()->setCellValue('F',$baris,$mhs->agama);
-            $object->getActiveSheet()->setCellValue('G',$baris,$mhs->alamat);
-            $object->getActiveSheet()->setCellValue('H',$baris,$mhs->nis);
-
-            $baris++;
-
-        }
-        $filename = "data_siswa".'.xlsx';
-        $object->getActiveSheet()->setTitle("data siswa");
-        ob_end_clean();
-
-        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        header('Content-Disposition: attechment;filename="'.$filename.'"');
-        header('Cache-Control: max-age=0');
-
-        $writer=PHPExcel_IOFactory::createwriter($object, 'Excel2007');
-        $writer->save('php://output');
-
-        exit;
-
-
-    }
-    public function print($absen)
-    {
-        $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
-        $this->load->view('datasiswa/printscore',$data);
 
     }
     public function daftarkelas()

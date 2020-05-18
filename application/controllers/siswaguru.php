@@ -5,6 +5,7 @@ class siswaguru extends CI_Controller{
     {
         parent:: __construct();
         $this->load->database();
+        $this->load->model('Dataguru_model');
         $this->load->model('datasiswa_model');
         $this->load->library('form_validation');
 
@@ -50,6 +51,7 @@ class siswaguru extends CI_Controller{
 
         $this->pagination->initialize($config);
         $data['start']=$this->uri->segment(3);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->datasiswa_model->getpilihDatasiswa($config['per_page'],$data['start']);
 
         if($this->input->post('keyword'))
@@ -61,7 +63,7 @@ class siswaguru extends CI_Controller{
             $data['oop']= $this->datasiswa_model->pilihKelas();
         }
 
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/datasiswa_guru',$data);
         $this->load->view('tampleteguru/footer');
 
@@ -70,9 +72,9 @@ class siswaguru extends CI_Controller{
     {
         $this->load->database();
         $this->load->model('datasiswa_model');
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
-        $data['nilai'] = $this->datasiswa_model->JoinNilaiuser();
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/viewsiswa_guru',$data);
         $this->load->view('tampleteguru/footer');
 
@@ -119,6 +121,7 @@ class siswaguru extends CI_Controller{
 
         $this->pagination->initialize($config);
         $data['start']=$this->uri->segment(4);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->datasiswa_model->getpilihDatasiswa($config['per_page'],$data['start']);
 
         if($this->input->post('keyword'))
@@ -130,14 +133,16 @@ class siswaguru extends CI_Controller{
             $data['oop']= $this->datasiswa_model->pilihKelas();
         }
 
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/dafsiswarapot_siswa',$data);
         $this->load->view('tampleteguru/footer');
 
     }
-    public function raport($id){
+    public function raport($absen){
+        $data['iip']= $this->datasiswa_model->getDatasiswaByAbsen($absen);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['judul'] = 'Raport siswa';
-        $data['oop'] = $this->datasiswa_model->getraportSiswabyabsen($id);
+        $data['oop'] = $this->datasiswa_model->getraportbyabsen($absen);
 
 
         $this->load->view('tampleteguru/header',$data);
@@ -150,6 +155,7 @@ class siswaguru extends CI_Controller{
         $data['kelas'] = ['10 RPL 1','10 RPL 2','11 RPL 1','11 RPL 2','12 RPL 1','12 RPL 2','10 TATA BOGA 1','10 TATA BOGA 2','11 TATA BOGA 1','11 TATA BOGA 2','12 TATA BOGA 1','12 TATA BOGA 2','10 TATA BUSANA 1','10 TATA BUSANA 2','11 TATA BUSANA 1','11 TATA BUSANA 2','12 TATA BUSANA 1','12 TATA BUSANA 2','10 PERHOTELAN 1','10 PERHOTELAN 2','11 PERHOTELAN 1','11 PERHOTELAN 2','12 PERHOTELAN 1','12 PERHOTELAN 2'];
         $data['kelamin'] = ['laki-laki', 'Perempuan'];
         $data['agama'] = ['islam', 'kristen','katolik','hindu','budha','etc'];
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
     
         $this->form_validation->set_rules('nama','Nama','required');
@@ -158,7 +164,7 @@ class siswaguru extends CI_Controller{
     
         if ($this->form_validation->run() == FALSE){
     
-            $this->load->view('tampleteguru/header');
+            $this->load->view('tampleteguru/header',$data);
             $this->load->view('guru/editdatasiswa_guru',$data);
             $this->load->view('tampleteguru/footer');
         }
@@ -168,14 +174,16 @@ class siswaguru extends CI_Controller{
             redirect('siswaguru');
         }
     }
-    public function tambahnilai()
+    public function tambahnilai($absen)
     {
+        $data['oop']= $this->datasiswa_model->getDatasiswaByAbsen($absen);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $this->form_validation->set_rules('id_siswa','id_siswa','required');
 
 
         if ($this->form_validation->run() == FALSE){
 
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/tambahnilai_guru');
         $this->load->view('tampleteguru/footer');
         }
@@ -183,18 +191,19 @@ class siswaguru extends CI_Controller{
         else{
             $this->datasiswa_model->tambahNilaisiswa($data);
             $this->session->set_flashdata('flash','ditambahkan');
-            redirect('siswaguru/raport');; 
+            redirect('siswaguru/report');; 
         }
     }
     public function editnilai($id)
     {
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->datasiswa_model->getDatanilaiByid($id);
         $this->form_validation->set_rules('id_siswa','id_siswa','required');
 
 
         if ($this->form_validation->run() == FALSE){
 
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/editnilai_guru',$data);
         $this->load->view('tampleteguru/footer');
         }
@@ -202,7 +211,7 @@ class siswaguru extends CI_Controller{
         else{
             $this->datasiswa_model->editNilaisiswa($id);
             $this->session->set_flashdata('flash','diedit');
-            redirect('siswaguru/raport');; 
+            redirect('siswaguru/report');; 
         }
     }
     public function hapus($id)
@@ -211,14 +220,22 @@ class siswaguru extends CI_Controller{
         $this->load->model('datasiswa_model');
         $this->datasiswa_model->hapusDataNilai($id);
         $this->session->set_flashdata('flash','dihapus');
-        redirect('siswaguru/raport');
+        redirect('siswaguru/report');
 
     }
+    public function printraport($absen)
+    {
+        $data['iip']= $this->datasiswa_model->getDatasiswaByAbsen($absen);
+        $data['oop']=$this->datasiswa_model->getraportSiswabyabsen($absen);
+
+        $this->load->view('print/raport',$data);
+    } 
     public function daftarkelas()
     {
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['judul'] = 'Daftar Kelas';
 
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('datasiswa/daftarkelas',$data);
         $this->load->view('tampleteguru/footer');
     }

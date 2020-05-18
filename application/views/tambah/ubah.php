@@ -108,9 +108,15 @@
                 </div>
                 <div class="form-group">
                     <label for="foto">ubah foto</label>
-                    <input type="hidden" name="file_lama" value="<?= $oop['foto']; ?>">
-                    <img src="<?=base_url(); ?>assets/foto/<?= $oop['foto']; ?>" width="40" height="60">
-                    <input type="file" name="foto" class="form-control" id="foto" >
+                    <input type="hidden" name="filelama" class="form-control" id="filelama" value="<?= $oop['foto']; ?>">
+                    <?php
+                      if (isset($oop->foto))
+                        {
+                          echo'<input type="hidden" name="old_pict" value="'.$oop->foto.'">';
+                          echo'<img src"'.base_url().'assets/foto/'.$oop->foto.'" width="30%">';
+                        }
+                        ?>
+                    <input type="file" name="foto" class="form-control" id="foto">
                 </div>
                 <button type="submit" name="ubah" class="btn btn-primary"><i class='fas fa-save'></i>  Simpan data</button>
             </form>

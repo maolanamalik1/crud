@@ -65,8 +65,11 @@ $data = array(
         $kelamin = $this->input->post('kelamin');
         $gelar = $this->input->post('gelar');
         $agama = $this->input->post('agama');
-        $alamat = $this->input->post('alamat');
         $ngajar = $this->input->post('ngajar');
+        $alamat = $this->input->post('alamat');
+        $username = $this->input->post('username');
+        $passwod = $this->input->post('passwod');
+        $file_lama=$this->input->post('filelama');
         $foto = $_FILES['foto'];
         if($foto='')
     {
@@ -79,10 +82,10 @@ $data = array(
 
     $this->load->library('upload', $config);
     if (!$this->upload->do_upload('foto')) {
-        echo 'Gagal Upload';
-        die();
+        $foto = $file_lama;
     } else {
         $foto = $this->upload->data('file_name');
+        unlink('assets/foto'.$file_lama);
     }
 }
 $data = array(
@@ -93,6 +96,8 @@ $data = array(
     'agama' => $agama,
     'ngajar'=> $ngajar,
     'alamat' => $alamat,
+    'username' => $username,
+    'passwod' => $passwod,
     'foto' => $foto,
 
 );
@@ -122,4 +127,5 @@ $data = array(
         return $this->db->get('guru')->num_rows();
 
     }
+
 }
