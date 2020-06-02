@@ -30,36 +30,9 @@
                 <div class="input-group">
                     <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" name="pilih">
                     <option selected>-- pilih kelas --</option>
-                    <option>10 RPL 1</option>
-                    <option>10 RPL 2</option>
-                    <option>11 RPL 1</option>
-                    <option>11 RPL 2</option>
-                    <option>12 RPL 1</option>
-                    <option>12 RPL 2</option>
-                    <option>10 TATA BOGA 1</option>
-                    <option>10 TATA BOGA 2</option>
-                    <option>11 TATA BOGA 1</option>
-                    <option>11 TATA BOGA 2</option>
-                    <option>12 TATA BOGA 1</option>
-                    <option>12 TATA BOGA 2</option>
-                    <option>10 TATA BUSANA 1</option>
-                    <option>10 TATA BUSANA 2</option>
-                    <option>11 TATA BUSANA 1</option>
-                    <option>11 TATA BUSANA 2</option>
-                    <option>12 TATA BUSANA 1</option>
-                    <option>12 TATA BUSANA 2</option>
-                    <option>10 PERHOTELAN 1</option>
-                    <option>10 PERHOTELAN 2</option>
-                    <option>11 PERHOTELAN 1</option>
-                    <option>11 PERHOTELAN 2</option>
-                    <option>12 PERHOTELAN 1</option>
-                    <option>12 PERHOTELAN 2</option>
-                    <option>10 USAHA PERJALANAN WISATA 1</option>
-                    <option>10 USAHA PERJALANAN WISATA 2</option>
-                    <option>11 USAHA PERJALANAN WISATA 1</option>
-                    <option>11 USAHA PERJALANAN WISATA 2</option>
-                    <option>12 USAHA PERJALANAN WISATA 1</option>
-                    <option>12 USAHA PERJALANAN WISATA 2</option>
+                  <?php foreach( $kel as $k ): ?>
+                  <option value="<?= $k['id']; ?>"><?= $k['nama_kelas']; ?></option>
+                  <?php endforeach; ?>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-outline-primary" type="submit">pilih</button>
@@ -106,7 +79,7 @@
                   <th><?= $mhs['absen2'] ?></th>
                   <td><img src="<?=base_url(); ?>assets/foto/<?= $mhs['foto']; ?>" width="40" height="60"></td>
                   <td><?= $mhs['nama'] ?></td>
-                  <td><?= $mhs['kelas'] ?></td>
+                  <td><?= $mhs['nama_kelas'] ?></td>
                     <td>
                           <a class="badge badge-success btn-sm" href="<?= base_url(); ?>siswaguru/raport/<?=$mhs['absen'];?>">
                           

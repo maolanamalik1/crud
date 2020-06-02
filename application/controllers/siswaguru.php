@@ -10,7 +10,7 @@ class siswaguru extends CI_Controller{
         $this->load->library('form_validation');
 
     }
-    public function index()
+  public function index()
     {
         $data['judul'] = 'Daftar siswa';
 
@@ -52,7 +52,8 @@ class siswaguru extends CI_Controller{
         $this->pagination->initialize($config);
         $data['start']=$this->uri->segment(3);
         $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
-        $data['oop'] = $this->datasiswa_model->getpilihDatasiswa($config['per_page'],$data['start']);
+        $data['oop'] = $this->datasiswa_model->getsiswabykelas($config['per_page'],$data['start']);
+        $data['kel'] = $this->datasiswa_model->getkelas();
 
         if($this->input->post('keyword'))
         {
@@ -122,7 +123,8 @@ class siswaguru extends CI_Controller{
         $this->pagination->initialize($config);
         $data['start']=$this->uri->segment(4);
         $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
-        $data['oop'] = $this->datasiswa_model->getpilihDatasiswa($config['per_page'],$data['start']);
+        $data['kel'] = $this->datasiswa_model->getkelas();
+        $data['oop'] = $this->datasiswa_model->getsiswabykelas($config['per_page'],$data['start']);
 
         if($this->input->post('keyword'))
         {

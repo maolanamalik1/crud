@@ -46,6 +46,7 @@ class guruguru extends CI_Controller{
         
         $this->pagination->initialize($config);
         $data['start']=$this->uri->segment(3);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->Dataguru_model->getpilihDataguru($config['per_page'],$data['start']);
 
         if($this->input->post('keyword'))
@@ -57,15 +58,15 @@ class guruguru extends CI_Controller{
             $data['oop']= $this->Dataguru_model->pilihMapel();
         }
 
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/dataguru_guru',$data);
         $this->load->view('tampleteguru/footer');
     }
     public function view($id)
     {
-
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->Dataguru_model->getDataGuruByid($id);
-        $this->load->view('tampleteguru/header');
+        $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/viewguru_guru',$data);
         $this->load->view('tampleteguru/footer');
         

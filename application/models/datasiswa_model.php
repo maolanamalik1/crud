@@ -182,6 +182,45 @@ $data = array(
         return $this->db->get('nilai')->num_rows();
 
     }
+	    public function getdaftarjurusan()
+    {
+        return $this->db->get_where('jurusan')->result_array();
+    }
+    public function getkelas()
+    {
+        return $this->db->get_where('kelas')->result_array();
+    }
+    public function getjurusan()
+    {
+        return $this->db->get_where('jurusan')->result_array();
+    }
+	    public function getdaftarkelas()
+    {
+        $this->db->select('*');
+        $this->db->from('kelas k');
+        $this->db->join('jurusan j','k.id_jurusan = j.id');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
+    public function getall($absen)
+    {
+        $this->db->select('*');
+        $this->db->from('user u');
+        $this->db->where('absen',$absen);
+        $this->db->join('kelas k','u.id_kelas = k.id');
+        $this->db->join('jurusan j','k.id_jurusan = j.id');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
+	    public function getsiswabykelas($limit,$start)
+    {
+        $this->db->select('*');
+        $this->db->from('user b');
+        $this->db->join('kelas u','b.id_kelas = u.id');
+        $this->db->limit($limit,$start);
+        $query=$this->db->get();
+        return $query->result_array();
+    }
     public function cariRaportsiswa()
     {
         $keyword = $this->input->post('keyword',true);

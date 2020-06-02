@@ -1,444 +1,154 @@
-<title><?php echo $judul;?></title>
 <div class="content-wrapper">
+  <div class="container-fluid">
     <section class="content">
-    <!--judul-->
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="mt-3">Daftar kelas</h3>
-            </div>
+      <!--judul-->
+      <title><?php echo $judul;?></title>
+      <div class="row">
+        <div class="col-md-12">
+            <h3 class="mt-3">Daftar Kelas</h3>
         </div>
-    <!--akhir judul-->
-<!--baris pertama-->
-    <div class="row mt-4">
-    <!--x rpl 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>X RPL 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xrplsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
       </div>
-    <!--x rpl 1 akhir-->
-    <!--x rpl 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
+      <!--akhir judul-->
 
-                <p>X RPL 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xrpldua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
+      <!--tambah siswa-->
+      <div class="row mt-4">
+        <div class="col-md-2">
+        <a data-toggle="modal" data-target="#tambahkelasModal" class="btn btn-primary">+ Tambah Kelas</a>
+        </div>
       </div>
-    <!--x rpl 2 akhir-->
-    <!--xi rpl 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
+      <!--khir tambah siswa-->
+      <!--validasi-->
+      <?php if($this->session->flashdata('flash')) : ?>
+      <div class="row mt-3">
+        <div class="col-sm-12">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">Daftar kelas
+            <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
+      <!--akhir vali-->
+      <!--table-->
+      <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered mt-2 mb-5">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Kelas</th>
+                  <th scope="col">Jurusan</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php 
+                  $no = 1;
+                  foreach( $oop as $mhs ) : ?>
+                <tr>
+                  <th><?= $no++ ?></th>
+                  <td><?= $mhs['nama_kelas'] ?></td>
+                  <td><?= $mhs['nama_jurusan'] ?></td>
+                    <td>
+                          <a class="badge badge-warning btn-sm" href="<?= base_url(); ?>datasiswa/editkelas/<?=$mhs['id'];?>">
+                          
+                             edit
+                          </a>
+                          <a class="badge badge-danger btn-sm" href="<?= base_url(); ?>datasiswa/hapuskelas/<?= $mhs['id']; ?>" onclick="return confirm('Anda yakin?');">
+                              
+                              </i>
+                              Delete
+                          </a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      <!--Akhir-table-->
+       <!-- Modal -->
+    <div class="modal fade" id="tambahkelasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Form Tambah kelas</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action=" <?= base_url('datasiswa/tambahkelas') ?> ">
 
-                <p>XI RPL 1</p>
+              <div class="form-group">
+                <label>Nama Kelas</label>
+                <input type="text" name="nama_kelas"  id="nama_kelas" class="form-control" autocomplete="off">
+                <small class="text-danger"><?= form_error('nama_kelas') ?></small>
               </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xirplsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi rpl 1 akhir-->
-    <!--xi rpl 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
 
-                <p>XI RPL 2</p>
+              <div class="form-group">
+                <label>Nama Jurusan</label>
+                <select class="form-control" name="id_jurusan" id="id_jurusan">
+                  <option value="1">--Wajib Diisi--</option>
+                  <?php foreach( $jur as $k ): ?>
+                  <option value="<?= $k['id']; ?>"><?= $k['nama_jurusan']; ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <small class="text-danger"><?= form_error('id_jurusan') ?></small>
               </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xirpldua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi rpl 2 akhir-->
-    </div>
-<!--baris pertama akhir-->
-<!--baris kedua-->
-    <div class="row">
-    <!--xii rpl 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
 
-                <p>XII RPL 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiirplsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+              </form>
             </div>
-            <!---->
+          </div>
+        </div>
       </div>
-    <!--xii rpl 1 akhir-->
-    <!--xii rpl 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
+      <!--akhir modal-->
+                <!-- Modal -->
+    <div class="modal fade" id="editkelasModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Form edit kelas</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action=" <?= base_url('datasiswa/tambahkelas') ?> ">
 
-                <p>XII RPL 2</p>
+              <div class="form-group">
+                <label>Nama Kelas</label>
+                <input type="text" name="nama_kelas"  id="nama_kelas" class="form-control" <?= $iip['nama_kelas']; ?> autocomplete="off">
+                <small class="text-danger"><?= form_error('nama_kelas') ?></small>
               </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiirpldua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xii rpl 2 akhir-->
-    <!--x tbg 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
 
-                <p>X TBG 1</p>
+              <div class="form-group">
+                <label>Nama Jurusan</label>
+                <select class="form-control" name="id_jurusan" id="id_jurusan">
+                <?php foreach( $jur as $k ): ?>
+                    <?php if($k['id'] == $oop['id_jurusan']):?>
+                      <option value="<?= $k['id']; ?>"selected><?= $k['nama_jurusan']; ?></option>
+                      <?php else : ?>
+                        <option value="<?= $k['id']; ?>"><?= $k['nama_jurusan']; ?></option>
+                    <?php endif;?>
+                    <?php endforeach; ?>
+                </select>
+                <small class="text-danger"><?= form_error('id_jurusan') ?></small>
               </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xtbgsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--x tbg 1 akhir-->
-    <!--x tbg 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
 
-                <p>X TBG 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xtbgdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
+              <button type="submit" class="btn btn-primary">Simpan</button>
+              </form>
             </div>
-            <!---->
+          </div>
+        </div>
       </div>
-    <!--x tbg 2 akhir-->
-    </div>
-<!--baris kedua akhir-->
-<!--baris ketiga-->
-    <div class="row">
-    <!--xi tbg 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XI TBG 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xitbgsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi tbg 1 akhir-->
-    <!--xi tbg 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XI TBG 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xitbgdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi tbg 2 akhir-->
-    <!--xii tbg 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XII TBG 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiitbgsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xii tbg 1 akhir-->
-    <!--xii tbg 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XII TBG 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiitbgdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xii tbg 2 akhir-->
-    </div>
-<!--baris ketiga akhir-->
-<!--baris keempat-->
-    <div class="row">
-    <!--x tbs 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>X TBS 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xtbssatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--x tbs 1 akhir-->
-    <!--x tbs 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>X TBS 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xtbsdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--x tbs 2 akhir-->
-    <!--xi tbs 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XI TBS 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xitbssatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi tbs 1-->
-    <!--xi tbs 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XI TBS 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xitbsdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi tbs 2 akhir-->
-    </div>
-<!--baris keempat akhir-->
-<!--baris kelima-->
-    <div class="row">
-    <!--Xii tbs 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XII TBS 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiitbssatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xii tbs 1 akhir-->
-    <!--xii tbs 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XII TBS 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiitbsdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xii tbs 2 akhir-->
-    <!--x ph 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>X PH 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xphsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--x ph 1 akhir-->
-    <!--x ph 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>X PH 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xphdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--x ph 2 akhir-->
-    </div>
-<!--baris kelima akhir-->
-<!--baris keenam-->
-    <div class="row mb-3">
-    <!--xi ph 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XI PH 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiphsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi ph 1 akhir-->
-    <!--xi ph 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XI PH 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiphdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xi ph 2 akhir-->
-    <!--xii ph 1-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XII PH 1</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiiphsatu" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xii ph 1 akhir-->
-    <!--xii ph 2-->
-      <div class="col-md-3">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3></h3>
-
-                <p>XII PH 2</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <a href="<?=base_url(); ?>daftarkelas/xiiphdua" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <!---->
-      </div>
-    <!--xii ph2 akhir-->
-    </div>
-<!--baris keenam akhir-->
+      <!--akhir modal--> 
+        
     </section>
+  </div>
 </div>

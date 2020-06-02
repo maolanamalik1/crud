@@ -127,5 +127,14 @@ $data = array(
         return $this->db->get('guru')->num_rows();
 
     }
-
+    public function getdataguruuser()
+    {
+        $query = $this->db->get_where('guru',array('id' => $this->session->userdata('id')));
+        return $query;
+    }
+    public function geteditdataguruuser()
+    {
+        $query = $this->db->get_where('guru',array('id' => $this->session->userdata('id')));
+        return $query->result_array();
+    }
 }
