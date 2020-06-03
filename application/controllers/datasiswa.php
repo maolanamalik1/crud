@@ -140,5 +140,56 @@ class datasiswa extends CI_Controller{
         $this->load->view('datasiswa/daftarkelas',$data);
         $this->load->view('tampletes/footer');
     }
+	    public function editkelas($id)
+    {
+        $data['oop'] = $this->datasiswa_model->getkelasbyid($id);
+        $data['jur'] = $this->datasiswa_model->getdaftarjurusan();
+        $data['judul'] = 'edit kelas';
+        $this->form_validation->set_rules('nama_kelas','Nama kelas','required');
+        $this->form_validation->set_rules('id_jurusan','Nama jurusan','required');
+
+        if ($this->form_validation->run() == FALSE){
+
+            $this->load->view('tampletes/header2');
+            $this->load->view('tambah/ubahkelas',$data);
+            $this->load->view('tampletes/footer');
+        }
+
+        else{
+            $this->datasiswa_model->editkelas($id);
+            $this->session->set_flashdata('flash','diedit');
+            redirect('datasiswa/daftarkelas');
+        }
+    }
+	   public function tambahkelas()
+    {
+        $data['oop'] = $this->datasiswa_model->getdaftarkelas();
+        $data['jur'] = $this->datasiswa_model->getdaftarjurusan();
+        $data['judul'] = 'Daftar Kelas';
+        $this->form_validation->set_rules('nama_kelas','Nama kelas','required');
+        $this->form_validation->set_rules('id_jurusan','Nama jurusan','required');
+
+        if ($this->form_validation->run() == FALSE){
+
+            $this->load->view('tampletes/header2');
+            $this->load->view('datasiswa/daftarkelas',$data);
+            $this->load->view('tampletes/footer');
+        }
+
+        else{
+            $this->datasiswa_model->tambahkelas($data);
+            $this->session->set_flashdata('flash','ditambahkan');
+            redirect('datasiswa/daftarkelas');
+        }
+    }
+	    public function hapuskelas($id)
+    {
+        $this->load->database();
+        $this->load->model('datasiswa_model');
+        $this->datasiswa_model->hapuskelas($id);
+        $this->session->set_flashdata('flash','dihapus');
+        redirect('datasiswa/daftarkelas');
+
+    }
 
 }

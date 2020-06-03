@@ -65,6 +65,35 @@ $data = array(
         $this->db->where('absen', $absen);
         $this->db->update('user',$data);
 	} 
+	    public function tambahkelas($data)
+    {
+        $data =[
+            "nama_kelas" =>$this->input->post('nama_kelas',true),
+            "id_jurusan" =>$this->input->post('id_jurusan',true),
+            
+            
+
+        ];
+
+        $this->db->insert('kelas', $data);
+    }
+    public function editkelas($id)
+    {
+        $data =[
+            "nama_kelas" =>$this->input->post('nama_kelas',true),
+            "id_jurusan" =>$this->input->post('id_jurusan',true),
+            
+
+        ];
+
+        $this->db->where('id',$id);
+        $this->db->update('kelas', $data);
+    }
+    public function hapuskelas($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('kelas');
+    }
     public function cariDataSiswa()
     {
         $keyword = $this->input->post('keyword',true);
@@ -246,6 +275,15 @@ $data = array(
         $this->db->from('user b');
         $this->db->where('absen',$absen);
         $this->db->join('nilai u','b.absen = u.id_siswa');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
+	   public function getrekapbyabsen($absen)
+    {
+        $this->db->select('b.*');
+        $this->db->from('rekapabsen b');
+        $this->db->where('absen',$absen);
+        $this->db->join('user u','b.id_siswa = u.absen');
         $query=$this->db->get_where();
         return $query->result_array();
     }
