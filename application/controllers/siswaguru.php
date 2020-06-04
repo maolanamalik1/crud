@@ -302,4 +302,34 @@ class siswaguru extends CI_Controller{
         $this->load->view('guru/rekapabsensiswa_guru',$data);
         $this->load->view('tampleteguru/footer');
     }
+	    public function tambahrekap($absen)
+    {
+        $data['oop']= $this->datasiswa_model->getDatasiswaByAbsen($absen);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
+        $this->form_validation->set_rules('hri','Hari','required');
+        $this->form_validation->set_rules('tgl','Tanggal','required');
+        $this->form_validation->set_rules('kete','Keterangan','required');
+
+        if ($this->form_validation->run() == FALSE){
+
+        $this->load->view('tampleteguru/header',$data);
+        $this->load->view('guru/tambahrekap_guru');
+        $this->load->view('tampleteguru/footer');
+        }
+
+        else{
+            $this->datasiswa_model->tambahrekap($data);
+            $this->session->set_flashdata('flash','ditambahkan');
+            redirect('siswaguru/rekap');
+        }
+    }
+	    public function hapusrekap($id)
+    {
+        $this->load->database();
+        $this->load->model('datasiswa_model');
+        $this->datasiswa_model->hapusrekapabsen($id);
+        $this->session->set_flashdata('flash','dihapus');
+        redirect('siswaguru/rekap');
+
+    }
 }

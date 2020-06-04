@@ -94,6 +94,17 @@ $data = array(
         $this->db->where('id', $id);
         $this->db->delete('kelas');
     }
+	   public function tambahjurusan($data)
+    {
+        $data =[
+            "nama_jurusan" =>$this->input->post('nama_jurusan',true),
+            
+            
+
+        ];
+
+        $this->db->insert('jurusan', $data);
+    }
     public function cariDataSiswa()
     {
         $keyword = $this->input->post('keyword',true);
@@ -291,5 +302,23 @@ $data = array(
     public function getDatanilaibyid($id)
     {
         return $this->db->get_where('nilai',['id'=>$id])->row_array();
+    }
+	    public function getrekapbyid($id)
+    {
+        return $this->db->get_where('rekapabsen',['id'=>$id])->row_array();
+    }
+	    public function tambahrekap($data)
+    {
+        $data =[
+            "id_siswa" =>$this->input->post('id_siswa',true),
+            "hri" =>$this->input->post('hri',true),
+            "tgl" =>$this->input->post('tgl',true),
+            "kete" =>$this->input->post('kete',true),
+            
+            
+
+        ];
+
+        $this->db->insert('rekapabsen', $data);
     }
 }

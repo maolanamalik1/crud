@@ -140,6 +140,15 @@ class datasiswa extends CI_Controller{
         $this->load->view('datasiswa/daftarkelas',$data);
         $this->load->view('tampletes/footer');
     }
+	    public function daftarjurusan()
+    {
+        $data['judul'] = 'Daftar Kelas';
+        $data['oop'] = $this->datasiswa_model->getdaftarjurusan();
+
+        $this->load->view('tampletes/header2');
+        $this->load->view('datasiswa/daftarjurusan',$data);
+        $this->load->view('tampletes/footer');
+    }
 	    public function editkelas($id)
     {
         $data['oop'] = $this->datasiswa_model->getkelasbyid($id);
@@ -190,6 +199,25 @@ class datasiswa extends CI_Controller{
         $this->session->set_flashdata('flash','dihapus');
         redirect('datasiswa/daftarkelas');
 
+    }
+	    public function tambahjurusan()
+    {
+        $data['oop'] = $this->datasiswa_model->getdaftarjurusan();
+        $data['judul'] = 'Daftar Kelas';
+        $this->form_validation->set_rules('nama_jurusan','Nama jurusan','required');
+
+        if ($this->form_validation->run() == FALSE){
+
+            $this->load->view('tampletes/header2');
+            $this->load->view('datasiswa/daftarjurusan',$data);
+            $this->load->view('tampletes/footer');
+        }
+
+        else{
+            $this->datasiswa_model->tambahjurusan($data);
+            $this->session->set_flashdata('flash','ditambahkan');
+            redirect('datasiswa/daftarjurusan');
+        }
     }
 
 }
