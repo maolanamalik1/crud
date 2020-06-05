@@ -332,4 +332,29 @@ class siswaguru extends CI_Controller{
         redirect('siswaguru/rekap');
 
     }
+	    public function editrekap($id)
+    {
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
+        $data['oop'] = $this->datasiswa_model->getrekapbyid($id);
+        $data['hari'] = ['SENIN', 'SELASA','RABU','KAMIS','JUMAT'];
+        $data['ket'] = ['MASUK', 'SAKIT','IZIN','ALPHA'];
+        $this->form_validation->set_rules('hri','Hari','required');
+        $this->form_validation->set_rules('tgl','Tanggal','required');
+        $this->form_validation->set_rules('kete','Keterangan','required');
+        
+
+
+        if ($this->form_validation->run() == FALSE){
+
+        $this->load->view('tampleteguru/header',$data);
+        $this->load->view('guru/editrekap_guru',$data);
+        $this->load->view('tampleteguru/footer');
+        }
+
+        else{
+            $this->datasiswa_model->editrekapabsen($id);
+            $this->session->set_flashdata('flash','diedit');
+            redirect('siswaguru/rekap');
+        }
+    }
 }

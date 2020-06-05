@@ -218,6 +218,35 @@ class datasiswa extends CI_Controller{
             $this->session->set_flashdata('flash','ditambahkan');
             redirect('datasiswa/daftarjurusan');
         }
+		
+    }
+	    public function editjurusan($no)
+    {
+        $data['oop'] = $this->datasiswa_model->getjurusanbyid($no);
+        $data['judul'] = 'edit jurusan';
+        $this->form_validation->set_rules('nama_jurusan','Nama jurusan','required');
+
+        if ($this->form_validation->run() == FALSE){
+
+            $this->load->view('tampletes/header2');
+            $this->load->view('tambah/ubahjurusan',$data);
+            $this->load->view('tampletes/footer');
+        }
+
+        else{
+            $this->datasiswa_model->editjurusan($no);
+            $this->session->set_flashdata('flash','diedit');
+            redirect('datasiswa/daftarjurusan');
+        }
+    }
+	    public function hapusjurusan($no)
+    {
+        $this->load->database();
+        $this->load->model('datasiswa_model');
+        $this->datasiswa_model->hapusjurusan($no);
+        $this->session->set_flashdata('flash','dihapus');
+        redirect('datasiswa/daftarjurusan');
+
     }
 
 }
