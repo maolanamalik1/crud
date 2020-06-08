@@ -180,8 +180,7 @@ $data = array(
         $absen2 = $this->input->post('absen2');
         $email = $this->input->post('email');
         $kelamin = $this->input->post('kelamin');
-        $kelas = $this->input->post('kelas');
-        $jurusan = $this->input->post('jurusan');
+        $id_kelas = $this->input->post('id_kelas');
         $agama = $this->input->post('agama');
         $alamat = $this->input->post('alamat');
         $nis = $this->input->post('nis');
@@ -211,8 +210,7 @@ $data = array(
     'absen2' => $absen2,
     'email' => $email,
     'kelamin' => $kelamin,
-    'kelas' => $kelas,
-    'jurusan' => $jurusan,
+    'id_kelas' => $id_kelas,
     'agama' => $agama,
     'alamat' => $alamat,
     'nis' => $nis,
@@ -225,6 +223,52 @@ $data = array(
         $this->db->where('absen',$absen);
         $this->db->update('user', $data);
     }
+    public function editDatasiswaByabsen2($absen)
+    {
+        $nama = $this->input->post('nama');
+        $absen2 = $this->input->post('absen2');
+        $email = $this->input->post('email');
+        $kelamin = $this->input->post('kelamin');
+        $id_kelas = $this->input->post('id_kelas');
+        $agama = $this->input->post('agama');
+        $alamat = $this->input->post('alamat');
+        $nis = $this->input->post('nis');
+        $file_lama =$this->input->post('filelama');
+        $foto = $_FILES['foto'];
+        if($foto='')
+    {
+
+    }
+ else 
+ {
+    $config['upload_path'] = './assets/foto';
+    $config['allowed_types'] = 'jpeg|jpg|png';
+
+    $this->load->library('upload', $config);
+    if (!$this->upload->do_upload('foto')) {
+        $foto = $file_lama;
+    } else {
+        $foto = $this->upload->data('file_name');
+        unlink('assets/foto'.$file_lama);
+    }
+}
+$data = array(
+    'nama' => $nama,
+    'absen2' => $absen2,
+    'email' => $email,
+    'kelamin' => $kelamin,
+    'id_kelas' => $id_kelas,
+    'agama' => $agama,
+    'alamat' => $alamat,
+    'nis' => $nis,
+    'foto' => $foto,
+
+);
+
+        $this->db->where('absen',$absen);
+        $this->db->update('user', $data);
+    }
+	
     public function getpilihDatasiswa($limit,$start)
     {
         return $this->db->get('user',$limit,$start)-> result_array();

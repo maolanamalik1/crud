@@ -153,10 +153,9 @@ class siswaguru extends CI_Controller{
     }
     public function edit($absen)
     {
-        $data['jurusan'] = ['rekayasa perangkat lunak', 'tata busana', 'tata boga','perhotelan', 'Perjalanan wisata'];
-        $data['kelas'] = ['10 RPL 1','10 RPL 2','11 RPL 1','11 RPL 2','12 RPL 1','12 RPL 2','10 TATA BOGA 1','10 TATA BOGA 2','11 TATA BOGA 1','11 TATA BOGA 2','12 TATA BOGA 1','12 TATA BOGA 2','10 TATA BUSANA 1','10 TATA BUSANA 2','11 TATA BUSANA 1','11 TATA BUSANA 2','12 TATA BUSANA 1','12 TATA BUSANA 2','10 PERHOTELAN 1','10 PERHOTELAN 2','11 PERHOTELAN 1','11 PERHOTELAN 2','12 PERHOTELAN 1','12 PERHOTELAN 2'];
         $data['kelamin'] = ['laki-laki', 'Perempuan'];
         $data['agama'] = ['islam', 'kristen','katolik','hindu','budha','etc'];
+        $data['kel'] = $this->datasiswa_model->getkelas();
         $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
         $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
     
@@ -171,7 +170,7 @@ class siswaguru extends CI_Controller{
             $this->load->view('tampleteguru/footer');
         }
         else{
-            $this->datasiswa_model->editDatasiswaByabsen($absen);
+            $this->datasiswa_model->editDatasiswaByabsen2($absen);
             $this->session->set_flashdata('flash','diedit');
             redirect('siswaguru');
         }

@@ -55,25 +55,13 @@
                 </select>
               </div>
                 <div class="form-group">
-                <label for="kelas">kelas</label>
-                <select class="form-control" name="kelas" id="kelas">
-                  <?php foreach( $kelas as $k ): ?>
-                    <?php if($k == $oop['jurusan']):?>
-                      <option value="<?= $k; ?>"selected><?= $k; ?></option>
+                <label for="id_kelas">kelas</label>
+                <select class="form-control" name="id_kelas" id="id_kelas">
+                <?php foreach( $kel as $k ): ?>
+                    <?php if($k['id'] == $oop['id_kelas']):?>
+                      <option value="<?= $k['id']; ?>"selected><?= $k['nama_kelas']; ?></option>
                       <?php else : ?>
-                        <option value="<?= $k; ?>"><?= $k; ?></option>
-                    <?php endif;?>
-                    <?php endforeach; ?>
-                </select>
-              </div>
-                <div class="form-group">
-                <label for="jurusan">Jurusan</label>
-                <select class="form-control" name="jurusan" id="jurusan">
-                  <?php foreach( $jurusan as $j ): ?>
-                    <?php if($j == $oop['jurusan']):?>
-                      <option value="<?= $j; ?>"selected><?= $j; ?></option>
-                      <?php else : ?>
-                        <option value="<?= $j; ?>"><?= $j; ?></option>
+                        <option value="<?= $k['id']; ?>"><?= $k['nama_kelas']; ?></option>
                     <?php endif;?>
                     <?php endforeach; ?>
                 </select>
