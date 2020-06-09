@@ -95,13 +95,16 @@ class Auth extends CI_Controller{
     
     public function register()
     {
+		$this->load->database();
+        $this->load->model('datasiswa_model');
+		$data['kel'] = $this->datasiswa_model->getkelas();
         $this->form_validation->set_rules('nama','nama','required|trim');
         
         
         
         if($this->form_validation->run() == false){
             $this->load->view('tampletes/authheader');
-            $this->load->view('login/register');
+            $this->load->view('login/register',$data);
             $this->load->view('tampletes/authfooter');
         }
            else{

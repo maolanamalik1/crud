@@ -50,41 +50,12 @@
                 </select>
 
             <div class="form-group">
-                <label for="kelas">kelas</label>
-                <select class="form-control" name="kelas" id="kelas">
-                  <option>10 RPL 1</option>
-                  <option>10 RPL 2</option>
-                  <option>11 RPL 1</option>
-                  <option>11 RPL 2</option>
-                  <option>12 RPL 1</option>
-                  <option>12 RPL 2</option>
-                  <option>10 TATA BOGA 1</option>
-                  <option>10 TATA BOGA 2</option>
-                  <option>11 TATA BOGA 1</option>
-                  <option>11 TATA BOGA 2</option>
-                  <option>12 TATA BOGA 1</option>
-                  <option>12 TATA BOGA 2</option>
-                  <option>10 TATA BUSANA 1</option>
-                  <option>10 TATA BUSANA 2</option>
-                  <option>11 TATA BUSANA 1</option>
-                  <option>11 TATA BUSANA 2</option>
-                  <option>12 TATA BUSANA 1</option>
-                  <option>12 TATA BUSANA 2</option>
-                  <option>10 PERHOTELAN 1</option>
-                  <option>10 PERHOTELAN 2</option>
-                  <option>11 PERHOTELAN 1</option>
-                  <option>11 PERHOTELAN 2</option>
-                  <option>12 PERHOTELAN 1</option>
-                  <option>12 PERHOTELAN 2</option>
-                </select>
-              </div>
-            <div class="form-group">
-                <label for="jurusan">Jurusan</label>
-                <select class="form-control" name="jurusan" id="jurusan">
-                  <option>rekayasa perangkat lunak</option>
-                  <option>tata boga</option>
-                  <option>tata busana</option>
-                  <option>perhotelan</option>
+                <label for="id_kelas">kelas</label>
+                <select class="form-control" name="id_kelas" id="id_kelas">
+                  <option value="1">--Wajib Diisi--</option>
+                  <?php foreach( $kel as $k ): ?>
+                  <option value="<?= $k['id']; ?>"><?= $k['nama_kelas']; ?></option>
+                  <?php endforeach; ?>
                 </select>
               </div>
               <div class="form-group">
