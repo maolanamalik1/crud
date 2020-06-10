@@ -126,13 +126,15 @@ $data = array(
         $keyword = $this->input->post('keyword',true);
         $this->db->like('nama', $keyword);
         $this->db->or_like('absen', $keyword);
-        $this->db->or_like('jurusan', $keyword);
-        return $this->db->get('user')->result_array();
+        $this->db->from('user b');
+        $this->db->join('kelas u','b.id_kelas = u.id');
+        $query=$this->db->get_where();
+        return $query->result_array();
     }
     public function pilihKelas()
     {
-        $pilih = $this->input->post('pilih',true);
-        $this->db->like('kelas',$pilih);
+        $keyword = $this->input->post('keyword',true);
+        $this->db->like('kelas', $keyword);
         return $this->db->get('user')->result_array();
     }
     public function tambahNilaisiswa($data)
