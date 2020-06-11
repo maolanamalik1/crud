@@ -99,8 +99,15 @@ class datasiswa extends CI_Controller{
     $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
 
     $this->form_validation->set_rules('nama','Nama','required');
-    $this->form_validation->set_rules('kelamin','Kelamin','required');
+    $this->form_validation->set_rules('absen2','Absen','required');
     $this->form_validation->set_rules('nis','Nis','required');
+    $this->form_validation->set_rules('email','Email','required');
+    $this->form_validation->set_rules('kelamin','Kelamin','required');
+    $this->form_validation->set_rules('id_kelas','Kelas','required');
+    $this->form_validation->set_rules('agama','Agama','required');
+    $this->form_validation->set_rules('alamat','Alamat','required');
+    $this->form_validation->set_rules('username','Username','required');
+    $this->form_validation->set_rules('passwod','Password','required');
 
     if ($this->form_validation->run() == FALSE){
 

@@ -14,12 +14,15 @@ class Tambah extends CI_Controller{
     {
         
         $this->form_validation->set_rules('nama','Nama','required');
+        $this->form_validation->set_rules('absen2','Absen','required');
         $this->form_validation->set_rules('nis','Nis','required');
-		$this->form_validation->set_rules('absen2','absen','required|trim');
-		$this->form_validation->set_rules('kelamin','kelamin','required|trim');
-		$this->form_validation->set_rules('kelas','kelas','required|trim');
-		$this->form_validation->set_rules('agama','agama','required|trim');
-		$this->form_validation->set_rules('alamat','alamat','required|trim');
+        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('kelamin','Kelamin','required');
+        $this->form_validation->set_rules('id_kelas','Kelas','required');
+        $this->form_validation->set_rules('agama','Agama','required');
+        $this->form_validation->set_rules('alamat','Alamat','required');
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('passwod','Password','required');
 		$data['kel'] = $this->datasiswa_model->getkelas();
 
         if ($this->form_validation->run() == FALSE){

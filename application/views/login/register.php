@@ -17,6 +17,7 @@
             </div>
           </div>
         </div>
+        <small class="text-danger"><?= form_error('nama');?></small>
         <div class="input-group mb-3">
           <input type="number" class="form-control" placeholder="Nomor absen" name='absen2'value="<?=set_value('absen2');?>">
           <div class="input-group-append">
@@ -25,6 +26,7 @@
             </div>
           </div>
         </div>
+        <small class="text-danger"><?= form_error('absen2');?></small>
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="email" name='email'value="<?=set_value('email');?>">
           <div class="input-group-append">
@@ -33,6 +35,7 @@
             </div>
           </div>
         </div>
+        <small class="text-danger"><?= form_error('email');?></small>
         <div class="row">
           <div class="col-12">
             <div class="form-group">
@@ -41,6 +44,7 @@
                   <option>Laki Laki</option>
                   <option>Perempuan</option>
                 </select>
+                <small class="text-danger"><?= form_error('kelamin');?></small>
             </div>
             <div class="form-group">
                 <label for="kelas">kelas</label>
@@ -50,6 +54,7 @@
                   <option value="<?= $k['id']; ?>"><?= $k['nama_kelas']; ?></option>
                   <?php endforeach; ?>
                 </select>
+                <small class="text-danger"><?= form_error('id_kelas');?></small>
               </div>
               <div class="form-group">
                 <label for="agama">agama</label>
@@ -61,6 +66,7 @@
                   <option>budha</option>
                   <option>etc</option>
                 </select>
+                <small class="text-danger"><?= form_error('agama');?></small>
               </div>
 
         <div class="input-group mb-3">
@@ -71,6 +77,7 @@
             </div>
           </div>
         </div>
+        <small class="text-danger"><?= form_error('alamat');?></small>
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="nis" name='nis'value="<?=set_value('nis');?>">
           <div class="input-group-append">
@@ -79,6 +86,7 @@
             </div>
           </div>
         </div>
+        <small class="text-danger"><?= form_error('nis');?></small>
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="username" name="username"value="<?=set_value('username');?>">
           <div class="input-group-append">
@@ -87,6 +95,7 @@
             </div>
           </div>
         </div>
+        <small class="text-danger"><?= form_error('username');?></small>
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password" name="passwod"value="<?=set_value('passwod');?>">
           <div class="input-group-append">
@@ -95,6 +104,7 @@
             </div>
           </div>
         </div>
+        <small class="text-danger"><?= form_error('passwod');?></small>
         <div class="form-group">
                     <label for="foto">Tambah foto</label>
                     <input type="file" name="foto" class="form-control" id="foto">

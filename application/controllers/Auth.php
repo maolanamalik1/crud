@@ -98,13 +98,17 @@ class Auth extends CI_Controller{
 		$this->load->database();
         $this->load->model('datasiswa_model');
 		$data['kel'] = $this->datasiswa_model->getkelas();
-        $this->form_validation->set_rules('nama','nama','required|trim');
-        $this->form_validation->set_rules('absen2','absen','required|trim');
-        $this->form_validation->set_rules('email','email','required|trim');
-        $this->form_validation->set_rules('kelaman','kelaman','required|trim');
-		$this->form_validation->set_rules('agama','agama','required|trim');
-		$this->form_validation->set_rules('username','username','required|trim');
-		$this->form_validation->set_rules('passwod','passwod','required|trim');
+        $this->form_validation->set_rules('nama','Nama','required');
+        $this->form_validation->set_rules('absen2','Absen','required');
+        $this->form_validation->set_rules('nis','Nis','required');
+        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('kelamin','Kelamin','required');
+        $this->form_validation->set_rules('id_kelas','Kelas','required');
+        $this->form_validation->set_rules('agama','Agama','required');
+        $this->form_validation->set_rules('alamat','Alamat','required');
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('passwod','Password','required');
+        
 		
         if($this->form_validation->run() == false){
             $this->load->view('tampletes/authheader');
