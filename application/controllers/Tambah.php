@@ -21,8 +21,6 @@ class Tambah extends CI_Controller{
         $this->form_validation->set_rules('id_kelas','Kelas','required');
         $this->form_validation->set_rules('agama','Agama','required');
         $this->form_validation->set_rules('alamat','Alamat','required');
-        $this->form_validation->set_rules('username','Username','required');
-        $this->form_validation->set_rules('passwod','Password','required');
 		$data['kel'] = $this->datasiswa_model->getkelas();
 
         if ($this->form_validation->run() == FALSE){

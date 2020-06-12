@@ -17,30 +17,24 @@
           </div><!-- /.col -->
           <div class="container">
           <div class="row">
-        <div class="col -md-11">
-            <div class="col-md-11">
+        <div class="col-md-12 mt-2">
                     <div class="card">
         <div class="card-body">
-        <?php if (validation_errors() ) : ?>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= validation_errors(); ?>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <?php endif; ?>
             <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                     <label for="nama">Nama</label>
                     <input type="text" name="nama" class="form-control" id="nama" value="<?= $oop['nama']; ?>">
+                    <small class="text-danger"><?= form_error('nama');?></small>
                 </div>
             <div class="form-group">
                     <label for="absen2">Absen</label>
                     <input type="number" min="1" max="36" name="absen2" class="form-control" id="absen2" value="<?= $oop['absen2']; ?>">
+                    <small class="text-danger"><?= form_error('absen2');?></small>
                 </div>
             <div class="form-group">
                     <label for="email">email</label>
                     <input type="text" name="email" class="form-control" id="email" value="<?= $oop['email']; ?>">
+                    <small class="text-danger"><?= form_error('email');?></small>
                 </div>
             <div class="form-group">
                 <label for="kelamin">jenis kelamin</label>
@@ -52,6 +46,7 @@
                         <option value="<?= $k; ?>"><?= $k; ?></option>
                     <?php endif;?>
                     <?php endforeach; ?>
+                    <small class="text-danger"><?= form_error('kelamin');?></small>
                 </select>
               </div>
                 <div class="form-group">
@@ -64,6 +59,7 @@
                         <option value="<?= $k['id']; ?>"><?= $k['nama_kelas']; ?></option>
                     <?php endif;?>
                     <?php endforeach; ?>
+                    <small class="text-danger"><?= form_error('id_kelas');?></small>
                 </select>
               </div>
               <div class="form-group">
@@ -76,23 +72,28 @@
                         <option value="<?= $a; ?>"><?= $a; ?></option>
                     <?php endif;?>
                     <?php endforeach; ?>
+                    <small class="text-danger"><?= form_error('agama');?></small>
                 </select>
               </div>
             <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <textarea class="form-control" name="alamat" id="alamat" rows="3"><?= $oop['alamat']; ?></textarea>
+                    <small class="text-danger"><?= form_error('alamat');?></small>
                 </div>
             <div class="form-group">
                     <label for="nis">nis</label>
                     <input type="text" name="nis"class="form-control" id="nis" value="<?= $oop['nis']; ?>">
+                    <small class="text-danger"><?= form_error('nis');?></small>
                 </div>
             <div class="form-group">
                     <label for="username">username</label>
                     <input type="text" name="username"class="form-control" id="username" value="<?= $oop['username']; ?>">
+                    <small class="text-danger"><?= form_error('username');?></small>
                 </div>
             <div class="form-group">
                     <label for="passwod">password</label>
                     <input type="text" name="passwod"class="form-control" id="passwod" value="<?= $oop['passwod']; ?>">
+                    <small class="text-danger"><?= form_error('passwod');?></small>
                 </div>
                 <div class="form-group">
                     <label for="foto">ubah foto</label>

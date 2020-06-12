@@ -79,7 +79,13 @@ class dataguru extends CI_Controller{
 
     $this->form_validation->set_rules('nama','Nama','required');
     $this->form_validation->set_rules('kelamin','Kelamin','required');
-
+	$this->form_validation->set_rules('email','email','required');
+	$this->form_validation->set_rules('gelar','gelar','required');
+	$this->form_validation->set_rules('agama','agama','required');
+	$this->form_validation->set_rules('ngajar','ngajar','required');
+	$this->form_validation->set_rules('alamat','alamat','required');
+	$this->form_validation->set_rules('username','username','required');
+	$this->form_validation->set_rules('passwod','passwod','required');
     if ($this->form_validation->run() == FALSE){
 
         $this->load->view('tampletes/header2');

@@ -7,40 +7,31 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">ubah data</h1>
+            <h1 class="m-0 text-dark mb-2">ubah data</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href=""></a></li>
-              <li class="breadcrumb-item active">ubah data</li>
-            </ol>
+            
           </div><!-- /.col -->
-          <div class="container">
+          <div class="container-fluid">
           <div class="row">
-        <div class="col -md-11">
-            <div class="col-md-11">
-                    <div class="card">
+        <div class="col-md-12 mt-2">
+          <div class="card">
         <div class="card-body">
-        <?php if (validation_errors() ) : ?>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= validation_errors(); ?>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <?php endif; ?>
             <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                     <label for="nama">Nama</label>
                     <input type="text" name="nama" class="form-control" id="nama" value="<?= $oop['nama']; ?>">
+                    <small class="text-danger"><?= form_error('nama');?></small>
                 </div>
             <div class="form-group">
                     <label for="absen2">Absen</label>
                     <input type="number" min="1" max="36" name="absen2" class="form-control" id="absen2" value="<?= $oop['absen2']; ?>">
+                    <small class="text-danger"><?= form_error('absen2');?></small>
                 </div>
             <div class="form-group">
                     <label for="email">email</label>
                     <input type="text" name="email" class="form-control" id="email" value="<?= $oop['email']; ?>">
+                    <small class="text-danger"><?= form_error('email');?></small>
                 </div>
             <div class="form-group">
                 <label for="kelamin">jenis kelamin</label>
@@ -52,30 +43,20 @@
                         <option value="<?= $k; ?>"><?= $k; ?></option>
                     <?php endif;?>
                     <?php endforeach; ?>
+                    <small class="text-danger"><?= form_error('kelamin');?></small>
                 </select>
               </div>
                 <div class="form-group">
-                <label for="kelas">kelas</label>
-                <select class="form-control" name="kelas" id="kelas">
-                  <?php foreach( $kelas as $k ): ?>
-                    <?php if($k == $oop['jurusan']):?>
-                      <option value="<?= $k; ?>"selected><?= $k; ?></option>
+                <label for="id_kelas">kelas</label>
+                <select class="form-control" name="id_kelas" id="id_kelas">
+                  <?php foreach( $kel as $k ): ?>
+                    <?php if($k['id'] == $oop['id_kelas']):?>
+                      <option value="<?= $k['id']; ?>"selected><?= $k['nama_kelas']; ?></option>
                       <?php else : ?>
-                        <option value="<?= $k; ?>"><?= $k; ?></option>
+                        <option value="<?= $k['id']; ?>"><?= $k['nama_kelas']; ?></option>
                     <?php endif;?>
                     <?php endforeach; ?>
-                </select>
-              </div>
-                <div class="form-group">
-                <label for="jurusan">Jurusan</label>
-                <select class="form-control" name="jurusan" id="jurusan">
-                  <?php foreach( $jurusan as $j ): ?>
-                    <?php if($j == $oop['jurusan']):?>
-                      <option value="<?= $j; ?>"selected><?= $j; ?></option>
-                      <?php else : ?>
-                        <option value="<?= $j; ?>"><?= $j; ?></option>
-                    <?php endif;?>
-                    <?php endforeach; ?>
+                    <small class="text-danger"><?= form_error('id_kelas');?></small>
                 </select>
               </div>
               <div class="form-group">
@@ -88,15 +69,18 @@
                         <option value="<?= $a; ?>"><?= $a; ?></option>
                     <?php endif;?>
                     <?php endforeach; ?>
+                    <small class="text-danger"><?= form_error('agama');?></small>
                 </select>
               </div>
             <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <textarea class="form-control" name="alamat" id="alamat" rows="3"><?= $oop['alamat']; ?></textarea>
+                    <small class="text-danger"><?= form_error('alamat');?></small>
                 </div>
             <div class="form-group">
                     <label for="nis">nis</label>
                     <input type="text" name="nis"class="form-control" id="nis" value="<?= $oop['nis']; ?>">
+                    <small class="text-danger"><?= form_error('nis');?></small>
                 </div>
                 <div class="form-group">
                     <label for="foto">ubah foto</label>
