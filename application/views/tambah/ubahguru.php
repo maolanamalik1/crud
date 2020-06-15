@@ -17,8 +17,7 @@
           </div><!-- /.col -->
           <div class="container">
           <div class="row">
-        <div class="col -md-11">
-            <div class="col-md-11">
+        <div class="col-md-12 mt-2">
                     <div class="card">
         <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
@@ -26,10 +25,12 @@
             <div class="form-group">
                     <label for="nama">Nama</label>
                     <input type="text" name="nama" class="form-control" id="nama" value="<?= $oop['nama']; ?>">
+                    <small class="text-danger"><?= form_error('nama');?></small>
                 </div>
             <div class="form-group">
                     <label for="email">email</label>
                     <input type="text" name="email" class="form-control" id="email" value="<?= $oop['email']; ?>">
+                    <small class="text-danger"><?= form_error('email');?></small>
                 </div>
                 <div class="form-group">
                 <label for="kelamin">jenis kelamin</label>
@@ -42,10 +43,12 @@
                     <?php endif;?>
                     <?php endforeach; ?>
                 </select>
+                <small class="text-danger"><?= form_error('kelamin');?></small>
               </div>
             <div class="form-group">
                     <label for="gelar">gelar</label>
                     <input type="text" name="gelar" class="form-control" id="gelar" value="<?= $oop['gelar']; ?>">
+                    <small class="text-danger"><?= form_error('gelar');?></small>
                 </div>
                 <div class="form-group">
                 <label for="agama">agama</label>
@@ -58,6 +61,7 @@
                     <?php endif;?>
                     <?php endforeach; ?>
                 </select>
+                <small class="text-danger"><?= form_error('agama');?></small>
               </div>
                 <div class="form-group">
                 <label for="ngajar">Mengajar pelajaran</label>
@@ -70,18 +74,22 @@
                     <?php endif;?>
                     <?php endforeach; ?>
                 </select>
+                <small class="text-danger"><?= form_error('ngajar');?></small>
               </div>
             <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <textarea class="form-control" name="alamat" id="alamat" rows="3"><?= $oop['alamat']; ?></textarea>
+                    <small class="text-danger"><?= form_error('alamat');?></small>
                 </div>
                 <div class="form-group">
                     <label for="username">Usernama</label>
                     <input type="text" name="username" class="form-control" id="username" value="<?= $oop['username']; ?>">
+                    <small class="text-danger"><?= form_error('username');?></small>
                 </div>
                 <div class="form-group">
                     <label for="passwod">password</label>
                     <input type="text" name="passwod" class="form-control" id="passwod" value="<?= $oop['passwod']; ?>">
+                    <small class="text-danger"><?= form_error('passwod');?></small>
                 </div>
                 <div class="form-group">
                     <label for="foto">ubah foto</label>

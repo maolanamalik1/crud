@@ -12,15 +12,17 @@ class Dataguru_model extends CI_Model{
         $this->db->delete('guru');
     }
 
-    public function tambahDataGuru()
+   public function tambahDataGuru()
     {
         $nama = $this->input->post('nama');
         $email = $this->input->post('email');
         $kelamin = $this->input->post('kelamin');
         $gelar = $this->input->post('gelar');
         $agama = $this->input->post('agama');
-        $alamat = $this->input->post('alamat');
         $ngajar = $this->input->post('ngajar');
+        $alamat = $this->input->post('alamat');
+        $username = $this->input->post('username');
+        $passwod = $this->input->post('passwod');
         $foto = $_FILES['foto'];
         if($foto='')
     {
@@ -47,6 +49,8 @@ $data = array(
     'agama' => $agama,
     'ngajar'=> $ngajar,
     'alamat' => $alamat,
+    'username' => $username,
+    'passwod' => $passwod,
     'foto' => $foto,
 
 );

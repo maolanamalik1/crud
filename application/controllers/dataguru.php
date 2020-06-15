@@ -74,18 +74,18 @@ class dataguru extends CI_Controller{
         redirect('dataguru');
 
     }
-    public function tambah()
+     public function tambah()
     {
 
-    $this->form_validation->set_rules('nama','Nama','required');
-    $this->form_validation->set_rules('kelamin','Kelamin','required');
-	$this->form_validation->set_rules('email','email','required');
-	$this->form_validation->set_rules('gelar','gelar','required');
-	$this->form_validation->set_rules('agama','agama','required');
-	$this->form_validation->set_rules('ngajar','ngajar','required');
-	$this->form_validation->set_rules('alamat','alamat','required');
-	$this->form_validation->set_rules('username','username','required');
-	$this->form_validation->set_rules('passwod','passwod','required');
+        $this->form_validation->set_rules('nama','Nama','required');
+        $this->form_validation->set_rules('email','Email','required');
+        $this->form_validation->set_rules('kelamin','Kelamin','required');
+        $this->form_validation->set_rules('ngajar','Mengajar matapelajaran','required');
+        $this->form_validation->set_rules('gelar','Gelar','required');
+        $this->form_validation->set_rules('alamat','Alamat','required');
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('passwod','Password','required');
+
     if ($this->form_validation->run() == FALSE){
 
         $this->load->view('tampletes/header2');
@@ -110,7 +110,7 @@ class dataguru extends CI_Controller{
 
 
     }
-    public function edit($id)
+     public function edit($id)
     {
     $data['Mapel'] = ['MATEMATIKA', 'AGAMA ISLAM', 'PENDIDIKAN PANCASILA','B INDONESIA', 'MATEMATIKA' , 'B INGGRIS' , 'SEJARAH' , 'SENIBUDAYA', 'PENJAS' , 'GURU BIDANG KEAHLIAN', 'ILMU PENGETAHUAN ALAM'];
     $data['kelamin'] = ['laki-laki', 'Perempuan'];
@@ -118,7 +118,13 @@ class dataguru extends CI_Controller{
     $data['oop'] = $this->Dataguru_model->getDataGuruByid($id);
 
     $this->form_validation->set_rules('nama','Nama','required');
+    $this->form_validation->set_rules('email','Email','required');
     $this->form_validation->set_rules('kelamin','Kelamin','required');
+    $this->form_validation->set_rules('ngajar','Mengajar matapelajaran','required');
+    $this->form_validation->set_rules('gelar','Gelar','required');
+    $this->form_validation->set_rules('alamat','Alamat','required');
+    $this->form_validation->set_rules('username','Username','required');
+    $this->form_validation->set_rules('passwod','Password','required');
 
     if ($this->form_validation->run() == FALSE){
 

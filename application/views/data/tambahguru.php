@@ -17,26 +17,19 @@
           </div><!-- /.col -->
           <div class="container">
           <div class="row">
-        <div class="col -md-11">
-            <div class="col-md-11">
+        <div class="col-md-12 mt-2">
                     <div class="card">
         <div class="card-body">
-          <?php if (validation_errors() ) : ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= validation_errors(); ?>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <?php endif; ?>
             <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                     <label for="nama">Nama</label>
                     <input type="text" name="nama" class="form-control" id="nama">
+                    <small class="text-danger"><?= form_error('nama');?></small>
                 </div>
             <div class="form-group">
                     <label for="email">email</label>
                     <input type="text" name="email" class="form-control" id="email">
+                    <small class="text-danger"><?= form_error('email');?></small>
                 </div>
             <div class="form-group">
                 <label for="kelamin">Kelamin</label>
@@ -44,11 +37,13 @@
                   <option>Laki Laki</option>
                   <option>Perempuan</option>
                 </select>
+                <small class="text-danger"><?= form_error('kelamin');?></small>
               </div>
 
             <div class="form-group">
                     <label for="gelar">gelar</label>
                     <input type="text" name="gelar" class="form-control" id="gelar">
+                    <small class="text-danger"><?= form_error('gelar');?></small>
                 </div>
                 <div class="form-group">
                 <label for="agama">agama</label>
@@ -60,6 +55,7 @@
                   <option>budha</option>
                   <option>etc</option>
                 </select>
+                <small class="text-danger"><?= form_error('agama');?></small>
               </div>
                 <div class="form-group">
                 <label for="ngajar">Mengajar pelajaran</label>
@@ -76,12 +72,25 @@
                     <option>GURU BIDANG KEAHLIAN</option>
                     <option>ILMU PENGETAHUAN ALAM</option>
                 </select>
+                <small class="text-danger"><?= form_error('ngajar');?></small>
+                </div>
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
                   <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
+                  <small class="text-danger"><?= form_error('alamat');?></small>
                 </div>
                 <div class="form-group">
-                    <label for="foto">Alamat</label>
+                    <label for="username">Usernama</label>
+                    <input type="text" name="username" class="form-control" id="username">
+                    <small class="text-danger"><?= form_error('username');?></small>
+                </div>
+                <div class="form-group">
+                    <label for="passwod">password</label>
+                    <input type="text" name="passwod" class="form-control" id="passwod">
+                    <small class="text-danger"><?= form_error('passwod');?></small>
+                </div>
+                <div class="form-group">
+                    <label for="foto">foto</label>
                     <input type="file" name="foto" class="form-control" id="foto">
                 </div>
 
