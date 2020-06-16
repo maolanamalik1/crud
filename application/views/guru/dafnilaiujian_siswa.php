@@ -5,7 +5,7 @@
       <title><?php echo $judul;?></title>
       <div class="row">
         <div class="col-md-12">
-            <h3 class="mt-3">Daftar raport Siswa</h3>
+            <h3 class="mt-3">Daftar Ulangan Siswa</h3>
         </div>
       </div>
       <!--akhir judul-->
@@ -88,21 +88,9 @@
                   <td><?= $mhs['nama'] ?></td>
                   <td><?= $mhs['nama_kelas'] ?></td>
                     <td>
-                          <a class="badge badge-success btn-sm" href="<?= base_url(); ?>siswaguru/raport/<?=$mhs['absen'];?>">
+                          <a class="badge badge-success btn-sm" href="<?= base_url(); ?>siswaguru/ujian/<?=$mhs['absen'];?>">
                           
-                             Raport
-                          </a>
-                          <a class="badge badge-warning btn-sm" href="<?= base_url(); ?>siswaguru/printraport/<?=$mhs['absen'];?>">
-                          
-                            print Raport
-                          </a>
-                          <a class="badge badge-danger btn-sm" href="<?= base_url(); ?>siswaguru/pdfgenerator/<?=$mhs['absen'];?>">
-                          
-                            pdf Raport
-                          </a>
-                          <a class="badge badge-success btn-sm" href="<?= base_url(); ?>siswaguru/excelrapot/<?=$mhs['absen'];?>">
-                          
-                            Excel Raport
+                             Nilai Ujian
                           </a>
                     </td>
                 </tr>

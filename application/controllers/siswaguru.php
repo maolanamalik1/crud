@@ -361,4 +361,132 @@ class siswaguru extends CI_Controller{
             redirect('siswaguru/rekap');
         }
     }
+	    public function nilaiujian()
+    {
+        $data['judul'] = 'Daftar Nilai Ujian siswa';
+
+        //pagination//
+        $this->load->library('pagination');
+        //config//
+        $config['base_url'] = 'http://localhost/crud/siswaguru/nilaiujian/index';
+        $config['total_rows'] = $this->datasiswa_model->countAllsiswa();
+        $config['per_page'] = 6;
+
+        //styling
+        $config['full_tag_open'] = '<nav><ul class="pagination">';
+        $config['full_tag_close'] = '</ul></nav>';
+
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li class="page-item">';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li class="page-item">';
+        $config['last_tag_close'] = '</li>';
+        
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li class="page-item">';
+        $config['next_tag_close'] = '</li>';
+        
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="page-item">';
+        $config['prev_tag_close'] = '</li>';
+        
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        
+        $config['num_tag_open'] = '<li class="page-item">';
+        $config['num_tag_close'] = '</li>';
+
+        $config['attributes'] = array('class' => 'page-link');
+
+        $this->pagination->initialize($config);
+        $data['start']=$this->uri->segment(4);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
+        $data['kel'] = $this->datasiswa_model->getkelas();
+        $data['oop'] = $this->datasiswa_model->getsiswabykelas($config['per_page'],$data['start']);
+
+        if($this->input->post('keyword'))
+        {
+            $data['oop']= $this->datasiswa_model->cariDataSiswa();
+        }
+        elseif($this->input->post('pilih'))
+        {
+            $data['oop']= $this->datasiswa_model->pilihKelas();
+        }
+
+        $this->load->view('tampleteguru/header',$data);
+        $this->load->view('guru/dafnilaiujian_siswa',$data);
+        $this->load->view('tampleteguru/footer');
+
+    }
+	    public function ujian($absen){
+        $data['iip']= $this->datasiswa_model->getDatasiswaByAbsen($absen);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
+        $data['judul'] = 'Raport siswa';
+        $data['oop'] = $this->datasiswa_model->getujianbyabsen($absen);
+
+
+        $this->load->view('tampleteguru/header',$data);
+        $this->load->view('guru/nilaiujian_siswa',$data);
+        $this->load->view('tampleteguru/footer');
+    }
+	public function pdfgenerator($absen){
+        $this->load->library('pdfgenerator');
+		$this->load->model('datasiswa_model');
+        $data['oop']=$this->datasiswa_model->getraportSiswabyabsen($absen);
+		$html = $this->load->view('guru/rapotpdf', $data, true);
+		$filename = 'report_'.time();
+		$this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
+    }
+    public function excelrapot($absen){
+        $this->load->model('datasiswa_model');
+        $data['oop']=$this->datasiswa_model->getraportSiswabyab($absen)->result();
+
+        require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel.php');
+        require(APPPATH. 'PHPExcel-1.8/Classes/PHPExcel/Writer/Excel2007.php');
+
+        $object = new PHPExcel();
+        $object->getProperties()->setCreator("Maolana malik");
+        $object->getProperties()->setLastModifiedBy("Guru");
+        $object->getProperties()->setTitle("Raport siswa");
+
+        $object->setActiveSheetIndex();
+
+        $object->getActiveSheet()->setCellValue('A1','NO');
+        $object->getActiveSheet()->setCellValue('B1','Nama');
+        $object->getActiveSheet()->setCellValue('C1','Mata pelajaran');
+        $object->getActiveSheet()->setCellValue('D1','Nilai pengetahuan');
+        $object->getActiveSheet()->setCellValue('E1','KKM');
+        $object->getActiveSheet()->setCellValue('F1','Nilai keterampilan');
+        $object->getActiveSheet()->setCellValue('G1','KKM');
+        $object->getActiveSheet()->setCellValue('H1','Keterangan');
+
+        $baris= 2;
+        $no = 1;
+
+        foreach($data['oop'] as $mhs){
+            $object->getActiveSheet()->setCellValue('A',$baris,$no++);
+            $object->getActiveSheet()->setCellValue('B',$baris,$mhs->nama);
+            $object->getActiveSheet()->setCellValue('C',$baris,$mhs->ma_pel);
+            $object->getActiveSheet()->setCellValue('D',$baris,$mhs->n_p);
+            $object->getActiveSheet()->setCellValue('E',$baris,$mhs->kkm_p);
+            $object->getActiveSheet()->setCellValue('F',$baris,$mhs->n_k);
+            $object->getActiveSheet()->setCellValue('G',$baris,$mhs->kkm_k);
+            $object->getActiveSheet()->setCellValue('H',$baris,$mhs->ket);
+
+            $baris++;
+        }
+        $filename = "raportsiswa".'.xlsx';
+        $object->getActiveSheet()->setTitle("raport siswa");
+       
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attechment;filename="'.$filename.'"');
+        header('Cache-Control: max-age=0');
+        
+        $writer=PHPExcel_IOFactory::createwriter($object, 'Excel2007');
+        $writer->save('php://output');
+
+        exit;
+    }
 }
