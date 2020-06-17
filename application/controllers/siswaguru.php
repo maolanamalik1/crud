@@ -431,6 +431,73 @@ class siswaguru extends CI_Controller{
         $this->load->view('guru/nilaiujian_siswa',$data);
         $this->load->view('tampleteguru/footer');
     }
+	    public function tambahnilaiujian($absen)
+    {
+        $data['oop']= $this->datasiswa_model->getDatasiswaByAbsen($absen);
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
+        $this->form_validation->set_rules('semester','Semester','required');
+        $this->form_validation->set_rules('mat_pel','Mata pelajaran','required');
+        $this->form_validation->set_rules('uh1','Ulangan harian 1','required');
+        $this->form_validation->set_rules('uh2','Ulangan harian 2','required');
+        $this->form_validation->set_rules('uh3','Ulangan harian 3','required');
+        $this->form_validation->set_rules('uh4','Ulangan harian 4','required');
+        $this->form_validation->set_rules('uh5','Ulangan harian 5','required');
+        $this->form_validation->set_rules('pts','Nilai PTS','required');
+        $this->form_validation->set_rules('pas','Nilai PAS','required');
+        
+
+        if ($this->form_validation->run() == FALSE){
+
+        $this->load->view('tampleteguru/header',$data);
+        $this->load->view('guru/tambahnilaiujian_guru');
+        $this->load->view('tampleteguru/footer');
+        }
+
+        else{
+            $this->datasiswa_model->tambahNilaiujian($data);
+            $this->session->set_flashdata('flash','ditambahkan');
+            redirect('siswaguru/nilaiujian');
+        }
+    }
+    public function hapusujian($id)
+    {
+        $this->load->database();
+        $this->load->model('datasiswa_model');
+        $this->datasiswa_model->hapusDataNilaiujian($id);
+        $this->session->set_flashdata('flash','dihapus');
+        redirect('siswaguru/nilaiujian');
+
+    }
+    public function editnilaiujian($id)
+    {
+        $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
+        $data['oop'] = $this->datasiswa_model->getDatanilaiujianbyid($id);
+        $data['sms'] = ['SEMESTER 1', 'SEMESTER 2'];
+        $this->form_validation->set_rules('semester','Semester','required');
+        $this->form_validation->set_rules('mat_pel','Mata pelajaran','required');
+        $this->form_validation->set_rules('uh1','Ulangan harian 1','required');
+        $this->form_validation->set_rules('uh2','Ulangan harian 2','required');
+        $this->form_validation->set_rules('uh3','Ulangan harian 3','required');
+        $this->form_validation->set_rules('uh4','Ulangan harian 4','required');
+        $this->form_validation->set_rules('uh5','Ulangan harian 5','required');
+        $this->form_validation->set_rules('pts','Nilai PTS','required');
+        $this->form_validation->set_rules('pas','Nilai PAS','required');
+        
+
+
+        if ($this->form_validation->run() == FALSE){
+
+        $this->load->view('tampleteguru/header',$data);
+        $this->load->view('guru/editnilaiujian_guru',$data);
+        $this->load->view('tampleteguru/footer');
+        }
+
+        else{
+            $this->datasiswa_model->editNilaiujiansiswa($id);
+            $this->session->set_flashdata('flash','diedit');
+            redirect('siswaguru/nilaiujian');
+        }
+    }
 	public function pdfgenerator($absen){
         $this->load->library('pdfgenerator');
 		$this->load->model('datasiswa_model');

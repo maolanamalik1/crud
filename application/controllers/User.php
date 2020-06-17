@@ -72,4 +72,16 @@ class User extends CI_Controller{
 
 
     }
+	    public function printraportsiswa()
+    {
+        $this->load->database();
+        $this->load->model('tampilan_model');
+        $data['iip']= $this->tampilan_model->getall2();
+        $data['oop']=$this->tampilan_model->nilairapot();
+        $data['skt']=$this->tampilan_model->numsakit();
+        $data['alpha']=$this->tampilan_model->numalpha();
+        $data['izin']=$this->tampilan_model->numizin();
+
+        $this->load->view('user/print_rapot',$data);
+    } 
 }

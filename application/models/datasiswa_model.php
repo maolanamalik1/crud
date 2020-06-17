@@ -176,6 +176,52 @@ $data = array(
         $this->db->delete('nilai');
     }
 	
+	    public function tambahNilaiujian($data)
+    {
+        $data =[
+            "id_siswa" =>$this->input->post('id_siswa',true),
+            "semester" =>$this->input->post('semester',true),
+            "mat_pel" =>$this->input->post('mat_pel',true),
+            "uh1" =>$this->input->post('uh1',true),
+            "uh2" =>$this->input->post('uh2',true),
+            "uh3" =>$this->input->post('uh3',true),
+            "uh4" =>$this->input->post('uh4',true),
+            "uh5" =>$this->input->post('uh5',true),
+            "pas" =>$this->input->post('pas',true),
+            "pts" =>$this->input->post('pts',true),
+            
+            
+
+        ];
+
+        $this->db->insert('nilaiharian', $data);
+    }
+    public function hapusDataNilaiujian($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('nilaiharian');
+    }
+    public function editNilaiujiansiswa($id)
+    {
+        $data =[
+            "id_siswa" =>$this->input->post('id_siswa',true),
+            "semester" =>$this->input->post('semester',true),
+            "mat_pel" =>$this->input->post('mat_pel',true),
+            "uh1" =>$this->input->post('uh1',true),
+            "uh2" =>$this->input->post('uh2',true),
+            "uh3" =>$this->input->post('uh3',true),
+            "uh4" =>$this->input->post('uh4',true),
+            "uh5" =>$this->input->post('uh5',true),
+            "pas" =>$this->input->post('pas',true),
+            "pts" =>$this->input->post('pts',true),
+            
+            
+
+        ];
+
+        $this->db->where('id',$id);
+        $this->db->update('nilaiharian', $data);
+    }
     public function editDatasiswaByabsen($absen)
     {
         $nama = $this->input->post('nama');
@@ -403,4 +449,44 @@ $data = array(
         $this->db->where('id', $id);
         $this->db->delete('rekapabsen');
     }
+	    public function numsakit($absen)
+    {
+        $this->db->select('b.*');
+        $this->db->from('rekapabsen b');
+        $this->db->where('absen',$absen);
+        $this->db->where('kete','SAKIT');
+        $this->db->join('user u','b.id_siswa = u.absen');
+        $query=$this->db->get_where();
+        return $query->num_rows();
+    }
+    public function numizin($absen)
+    {
+        $this->db->select('b.*');
+        $this->db->from('rekapabsen b');
+        $this->db->where('absen',$absen);
+        $this->db->where('kete','IZIN');
+        $this->db->join('user u','b.id_siswa = u.absen');
+        $query=$this->db->get_where();
+        return $query->num_rows();
+    }
+    public function numalpha($absen)
+    {
+        $this->db->select('b.*');
+        $this->db->from('rekapabsen b');
+        $this->db->where('absen',$absen);
+        $this->db->where('kete','ALPHA');
+        $this->db->join('user u','b.id_siswa = u.absen');
+        $query=$this->db->get_where();
+        return $query->num_rows();
+    }
+	    public function getujianbyabsen($absen)
+    {
+        $this->db->select('b.*');
+        $this->db->from('nilaiharian b');
+        $this->db->where('absen',$absen);
+        $this->db->join('user u','b.id_siswa = u.absen');
+        $query=$this->db->get_where();
+        return $query->result_array();
+    }
+
 }
