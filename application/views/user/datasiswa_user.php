@@ -1,106 +1,90 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
         <div class="col-md-12">
-            <h3 class="mt-3">Daftar Siswa</h3>
+            <h3 class="mt-3">Profile Siswa</h3>
         </div>
       </div>
-      <!--cari data-->
-      <div class="row mt-3">
-            <div class="col-md-12">
-                <form action="" method="post">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari data siswa..." name="keyword">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-primary" type="Submit" id="button-addon2">Cari</button>
-                      </div>
-                    </div>
-                </form>
-            </div> 
-        </div>
-      <!--cari data-->
-      <!--pilih data-->
-      <div class="row mt-">
-          <div class="col-md-4">
-            <form action="" method="post">
-              
-                <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon" name="pilih">
-                    <option selected>-- pilih kelas --</option>
-                    <option>10 RPL 1</option>
-                    <option>10 RPL 2</option>
-                    <option>11 RPL 1</option>
-                    <option>11 RPL 2</option>
-                    <option>12 RPL 1</option>
-                    <option>12 RPL 2</option>
-                    <option>10 TATA BOGA 1</option>
-                    <option>10 TATA BOGA 2</option>
-                    <option>11 TATA BOGA 1</option>
-                    <option>11 TATA BOGA 2</option>
-                    <option>12 TATA BOGA 1</option>
-                    <option>12 TATA BOGA 2</option>
-                    <option>10 TATA BUSANA 1</option>
-                    <option>10 TATA BUSANA 2</option>
-                    <option>11 TATA BUSANA 1</option>
-                    <option>11 TATA BUSANA 2</option>
-                    <option>12 TATA BUSANA 1</option>
-                    <option>12 TATA BUSANA 2</option>
-                    <option>10 PERHOTELAN 1</option>
-                    <option>10 PERHOTELAN 2</option>
-                    <option>11 PERHOTELAN 1</option>
-                    <option>11 PERHOTELAN 2</option>
-                    <option>12 PERHOTELAN 1</option>
-                    <option>12 PERHOTELAN 2</option>
-                  </select>
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="submit">pilih</button>
-                  </div>
+      <div class="row">
+          <div class="col-sm-3">
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline mt-4">
+              <div class="card-body box-profile">
+
+                <div class="text-center">
+                <?php foreach($detail as $data){?>
+                        <img src="<?= base_url();?>assets/foto/<?= $data->foto;?>" width="160" height="250" alt="User profile picture">
+                
+                        <h3 class="text-muted text-center mt-3"><?php echo $this->session->userdata('nama'); ?></h3>
+                 <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>kelas :</b> <a><?= $data->nama_kelas;?></a>
+                  </li>
+                 </ul>
+                <?php }?>
                 </div>
-            </from>
+
+              </div>
           </div>
-        </div>
-      <!--akhir pilih data-->
-            <!--table-->
-            <div class="row">
-        <div class="col-md-12">
-            <table class="table table-bordered mt-2 mb-5">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Absen</th>
-                  <th scope="col">Foto</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">Kelas</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php 
-                  $no = 1;
-                  foreach( $oop as $mhs ) : ?>
-                <tr>
-                  <th><?= $mhs['absen'] ?></th>
-                  <th><?= $mhs['absen2'] ?></th>
-                  <td><img src="<?=base_url(); ?>assets/foto/<?= $mhs['foto']; ?>" width="40" height="60"></td>
-                  <td><?= $mhs['nama'] ?></td>
-                  <td><?= $mhs['kelas'] ?></td>
-                    <td>
-                          <a class="btn btn-success btn-sm" href="<?= base_url(); ?>user/view/<?=$mhs['absen'];?>">
-                          <i class='fas fa-glasses'></i>
-                              View
-                          </a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-              </tbody>
-            </table>
           </div>
-        </div>
-            <!--pagination-->
-            <div class="row ml-3">
-            <?= $this->pagination->create_links(); ?>
-            </div>
-            <!--akhr pagination-->
-      <!--akhir tabel-->
-  </div>
+          <!----->
+          <!--keter-->
+          <div class="col-sm-9">
+              <div class="card card-primary">
+                <div class="card-header p-2">
+                    <div class="row">
+                        <div class="col-sm-10">
+                        <h3> Profil</h3>
+                        </div>
+                    </div>
+                </div>
+                    <div class="card-body">
+                       <br>
+                            <!--isi-->
+                                    <?php foreach( $detail as $mhs ) : ?>
+                                        <strong>Absen :</strong>
+                                        <p class="text-muted">
+                                        <?= $mhs->absen2;?>
+                                        </p>
+                                        <hr>
+                                        <strong>Nis :</strong>
+                                        <p class="text-muted">
+                                        <?= $mhs->nis;?>
+                                        </p>
+                                        <hr>
+                                        <strong>Jurusan :</strong>
+                                        <p class="text-muted">
+                                        <?= $mhs->nama_jurusan;?>
+                                        </p>
+                                        <hr>
+                                        <strong>Agama :</strong>
+                                        <p class="text-muted">
+                                        <?= $mhs->agama;?>
+                                        </p>
+                                        <hr>
+                                        <strong>Kelamin :</strong>
+                                        <p class="text-muted">
+                                        <?= $mhs->kelamin;?>
+                                        </p>
+                                        <hr>
+                                        <strong>Email :</strong>
+                                        <p class="text-muted">
+                                        <?= $mhs->email;?>
+                                        </p>
+                                        <hr>
+                                        <strong>Alamat :</strong>
+                                        <p class="text-muted">
+                                        <?= $mhs->alamat;?>
+                                        </p>
+                                        <hr>
+                                    <?php endforeach; ?>
+                            <!--isi-->
+                    </div>
+              </div>
+          </div>
+        <!--keter-->
+       </div>
+       <!---->
+      
+  
 </div>
 

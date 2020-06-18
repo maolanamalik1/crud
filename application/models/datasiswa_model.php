@@ -133,9 +133,12 @@ $data = array(
     }
     public function pilihKelas()
     {
-        $keyword = $this->input->post('keyword',true);
-        $this->db->like('kelas', $keyword);
-        return $this->db->get('user')->result_array();
+        $pilih = $this->input->post('pilih',true);
+        $this->db->like('id_kelas',$pilih);
+        $this->db->from('user b');
+        $this->db->join('kelas u','b.id_kelas = u.id');
+        $query=$this->db->get_where();
+        return $query->result_array();
     }
     public function tambahNilaisiswa($data)
     {
@@ -222,6 +225,7 @@ $data = array(
         $this->db->where('id',$id);
         $this->db->update('nilaiharian', $data);
     }
+	
     public function editDatasiswaByabsen($absen)
     {
         $nama = $this->input->post('nama');
@@ -407,7 +411,22 @@ $data = array(
         $query=$this->db->get_where();
         return $query->result_array();
     }
- 
+     public function getdaftarjurusan()
+    {
+        return $this->db->get_where('jurusan')->result_array();
+    }
+    public function getjurusanbyid($no)
+    {
+        return $this->db->get_where('jurusan',['no'=>$no])->row_array();
+    }
+    public function getkelas()
+    {
+        return $this->db->get_where('kelas')->result_array();
+    }
+    public function getkelasbyid($id)
+    {
+        return $this->db->get_where('kelas',['id'=>$id])->row_array();
+    }
     public function getDatanilaibyid($id)
     {
         return $this->db->get_where('nilai',['id'=>$id])->row_array();

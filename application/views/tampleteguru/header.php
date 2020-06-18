@@ -40,7 +40,7 @@
         <a href="<?=base_url(); ?>homeguru" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Profile</a>
+        <a href="<?=base_url(); ?>homeguru/profile" class="nav-link">Profile</a>
       </li>
     </ul>
 
@@ -71,11 +71,13 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <?php foreach($detail as $data){?>
         <div class="image">
-         
-        </div>
+        <img src="<?= base_url();?>assets/foto/<?= $data->foto;?>" class="img-circle elevation-3" alt="User Image">
+      </div>
+      <?php }?>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $this->session->userdata('nama'); ?></a>
+          <a href="<?=base_url(); ?>homeguru/profile" class="d-block"><?php echo $this->session->userdata('nama'); ?></a>
         </div>
       </div>
 
@@ -92,12 +94,6 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url(); ?>siswaguru/daftarkelas" class="nav-link">
-            <i class="fa fa-address-book" style='font-size:20px'></i>
-              <p> Daftar Kelas</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="<?=base_url(); ?>siswaguru" class="nav-link">
             <i class='ion ion-person-add' style='font-size:20px'></i>
               <p> Data Siswa</p>
@@ -105,15 +101,27 @@
           </li>
           </li>
           <li class="nav-item">
-            <a href="<?=base_url(); ?>siswaguru/raport" class="nav-link">
+            <a href="<?=base_url(); ?>siswaguru/report" class="nav-link">
             <i class='fas fa-book' style='font-size:20px'></i>
               <p> Raport Siswa</p>
             </a>
           </li>
           <li class="nav-item">
+            <a href="<?=base_url(); ?>siswaguru/nilaiujian" class="nav-link">
+            <i class='fas fa-book' style='font-size:20px'></i>
+              <p> Nilai Ulangan</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?=base_url(); ?>siswaguru/rekap" class="nav-link">
+            <i class='fas fa-book' style='font-size:20px'></i>
+              <p> Rekap Absen</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="<?=base_url(); ?>guruguru" class="nav-link">
             <i class="fa fa-user-circle" style='font-size:20px'></i>
-              <p>Data Guru</p>
+              <p>Daftar Guru</p>
             </a>
           </li>
         </ul>

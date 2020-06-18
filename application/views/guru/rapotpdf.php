@@ -19,17 +19,22 @@
         </tr>
     </table>
     <hr class="line-title" style="border-top: 3px solid black;">
-    <div class="row">
-              <div class="col-md-2">
-              <h5>
-              Nama: 
-              <br>
-              Kelas:
-              <br>
-              Jurusan:
-              </h5>
-              </div>
-        </div>
+    <?php 
+                  $no = 1;
+                  foreach( $iip as $mhs ) : ?>
+        <ul style="margin-left: 5px;">
+          <li style="display: inline; margin-left: 70px;"> Nama: <?= $mhs['nama'] ?></li>
+          <li style="display: inline; float: right; margin-right: 100px;">kelamin: <?= $mhs['kelamin'] ?></li>
+        </ul>
+        <ul style="margin-top: 5px; margin-left: 10px;">
+          <li style="display: inline; margin-left: 50px;">kelas:  <?= $mhs['nama_kelas'] ?></li>
+          <li style="display: inline;float: right; margin-right: 100px;;">agama: <?= $mhs['agama'] ?></li>
+        </ul>
+        <ul style="margin-top: 5px; margin-left: 10px;">
+          <li style="display: inline; margin-left: 50px;">jurusan:  <?= $mhs['nama_jurusan'] ?></li>
+          <li style="display: inline;float: right; margin-right: 100px;;">nis: <?= $mhs['nis'] ?></li>
+        </ul>
+        <?php endforeach; ?>
         <table class="table table-bordered mt-3">
               <thead class="">
                 <tr>
@@ -58,15 +63,31 @@
                 <?php endforeach; ?>
               </tbody>
          </table>
-    
+         <div class="col-md-3">
+                    <table class="table">
+                    <tr>
+                    <th>sakit:</th>
+                    <td><?= $skt ?></td>
+                    </tr>
+                    <tr>
+                    <th>alpha :</th>
+                    <td><?= $alpha ?></td>
+                    </tr>
+                    <tr>
+                    <th>izin :</th>
+                    <td><?= $izin ?></td>
+                    </tr>
+                    </table>
+              </div>
+         <ul style="margin-left: 10px;">
+          <li style="display: inline; margin-left: 70px;">  Tanda tangan guru</li>
+          <li style="display: inline; float: right; margin-right: 100px;">  Tanda tangan guru</li>
+        </ul>
+        <ul style="margin-top: 68px; margin-left: 10px;">
+          <li style="display: inline; margin-left: 50px;"> _________________</li>
+          <li style="display: inline;float: right; margin-right: 90px;;"> _________________</li>
+        </ul>
          <div class="row mt-5" style="margin-left: 50px;">
-              <div class="col-md-4">
-              <h5 style="margin-left: 50px;">TTD GURU</h5>
-              <div class="line" style="margin-top: 90px;border-top: 3px solid black;">
-              </div>
-              </div>
-              <div class="col-md-2">
-              </div>
          </div>
 </body>
 </html>

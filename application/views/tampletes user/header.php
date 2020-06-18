@@ -46,9 +46,9 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto" >
       <a class="nav-item nav-link" href="<?=base_url(); ?>Homeuser">Dashboard<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="<?=base_url(); ?>user">Data-siswa</a>
-      <a class="nav-item nav-link" href="<?=base_url(); ?>userguru">Data-guru</a>
-      <a class="nav-item nav-link active" href="<?=base_url(); ?>Auth/logout">LOG-OUT</a>
+      <a class="nav-item nav-link" href="<?=base_url(); ?>user">Profile-siswa</a>
+      <a class="nav-item nav-link" href="<?=base_url(); ?>user/nilai">Nilai-siswa</a>
+      <a class="nav-item nav-link btn btn-primary" href="<?=base_url(); ?>Auth/logout">LOG-OUT</a>
     </div>
   </div>
 </nav>

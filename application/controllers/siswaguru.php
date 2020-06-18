@@ -74,7 +74,7 @@ class siswaguru extends CI_Controller{
         $this->load->database();
         $this->load->model('datasiswa_model');
         $data['detail']= $this->Dataguru_model->getdataguruuser()->result();
-        $data['oop'] = $this->datasiswa_model->getDatasiswaByAbsen($absen);
+        $data['oop'] = $this->datasiswa_model->getall($absen);
         $this->load->view('tampleteguru/header',$data);
         $this->load->view('guru/viewsiswa_guru',$data);
         $this->load->view('tampleteguru/footer');
@@ -231,8 +231,11 @@ class siswaguru extends CI_Controller{
     }
     public function printraport($absen)
     {
-        $data['iip']= $this->datasiswa_model->getDatasiswaByAbsen($absen);
-        $data['oop']=$this->datasiswa_model->getraportSiswabyabsen($absen);
+        $data['iip']= $this->datasiswa_model->getall($absen);
+        $data['oop']=$this->datasiswa_model->getrapotbysen($absen);
+        $data['skt']=$this->datasiswa_model->numsakit($absen);
+        $data['alpha']=$this->datasiswa_model->numalpha($absen);
+        $data['izin']=$this->datasiswa_model->numizin($absen);
 
         $this->load->view('print/raport',$data);
     } 
@@ -501,7 +504,11 @@ class siswaguru extends CI_Controller{
 	public function pdfgenerator($absen){
         $this->load->library('pdfgenerator');
 		$this->load->model('datasiswa_model');
-        $data['oop']=$this->datasiswa_model->getraportSiswabyabsen($absen);
+        $data['iip']= $this->datasiswa_model->getall($absen);
+        $data['oop']=$this->datasiswa_model->getrapotbysen($absen);
+        $data['skt']=$this->datasiswa_model->numsakit($absen);
+        $data['alpha']=$this->datasiswa_model->numalpha($absen);
+        $data['izin']=$this->datasiswa_model->numizin($absen);
 		$html = $this->load->view('guru/rapotpdf', $data, true);
 		$filename = 'report_'.time();
 		$this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');

@@ -19,18 +19,22 @@
         </tr>
     </table>
     <hr class="line-title" style="border-top: 3px solid black;">
+    <?php 
+                  $no = 1;
+                  foreach( $iip as $mhs ) : ?>
         <ul style="margin-left: 5px;">
-          <li style="display: inline; margin-left: 70px;"> Nama: </li>
-          <li style="display: inline; float: right; margin-right: 150px;">kelamin: </li>
+          <li style="display: inline; margin-left: 70px;"> Nama: <?= $mhs['nama'] ?></li>
+          <li style="display: inline; float: right; margin-right: 100px;">kelamin: <?= $mhs['kelamin'] ?></li>
         </ul>
         <ul style="margin-top: 5px; margin-left: 10px;">
-          <li style="display: inline; margin-left: 50px;">kelas:  </li>
-          <li style="display: inline;float: right; margin-right: 150px;;">agama: </li>
+          <li style="display: inline; margin-left: 50px;">kelas:  <?= $mhs['nama_kelas'] ?></li>
+          <li style="display: inline;float: right; margin-right: 100px;;">agama: <?= $mhs['agama'] ?></li>
         </ul>
         <ul style="margin-top: 5px; margin-left: 10px;">
-          <li style="display: inline; margin-left: 50px;">jurusan:  </li>
-          <li style="display: inline;float: right; margin-right: 150px;;">nis: </li>
+          <li style="display: inline; margin-left: 50px;">jurusan:  <?= $mhs['nama_jurusan'] ?></li>
+          <li style="display: inline;float: right; margin-right: 100px;;">nis: <?= $mhs['nis'] ?></li>
         </ul>
+        <?php endforeach; ?>
         <table class="table table-bordered mt-3">
               <thead class="">
                 <tr>
@@ -63,15 +67,15 @@
                     <table class="table">
                     <tr>
                     <th>sakit:</th>
-                    <td></td>
+                    <td><?= $skt ?></td>
                     </tr>
                     <tr>
                     <th>alpha :</th>
-                    <td></td>
+                    <td><?= $alpha ?></td>
                     </tr>
                     <tr>
                     <th>izin :</th>
-                    <td></td>
+                    <td><?= $izin ?></td>
                     </tr>
                     </table>
               </div>
