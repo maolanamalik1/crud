@@ -60,6 +60,7 @@
                 <div class="card-tools">
                 <a href="<?=base_url(); ?>user/printraportsiswa" class="btn btn-warning">PRINT</a>
 				<a href="<?=base_url(); ?>user/pdfgenerator" class="btn btn-warning">EXPORT PDF</a>
+				<a href="<?=base_url(); ?>user/excelrapot" class="btn btn-warning">EXPORT EXCEL</a>
                 </div>
                 </div>
             <div class="card-body table-responsive p-0" style="height: 300px;">

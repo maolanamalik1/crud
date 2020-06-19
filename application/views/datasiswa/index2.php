@@ -64,17 +64,22 @@
       <?php endif; ?>
       <!--akhir vali-->
       <!--table-->
-      <div class="row">
-        <div class="col-md-11">
-            <table class="table table-bordered mt-2 mb-5">
-              <thead class="thead-dark">
+              <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Nilai Ujian</h3>
+                </div>
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+            <table class="table table-head-fixed">
+			<thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Absen</th>
-                  <th scope="col">Foto</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">Kelas</th>
-                  <th scope="col">Action</th>
+                  <th>#</th>
+                  <th>Absen</th>
+                  <th>Foto</th>
+                  <th>Nama</th>
+                  <th>Kelas</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -106,6 +111,8 @@
                 <?php endforeach; ?>
               </tbody>
             </table>
+			</div>
+			</div>
           </div>
         </div>
             <!--pagination-->

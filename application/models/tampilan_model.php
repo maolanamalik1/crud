@@ -11,6 +11,15 @@ class tampilan_model extends CI_Model{
         $query=$this->db->get_where();
         return $query->result_array();
     }
+	    public function raportSiswa2()
+    {
+        $this->db->select('*');
+        $this->db->from('user b');
+        $this->db->where('absen',$this->session->userdata('absen'));
+        $this->db->join('nilai u','b.absen = u.id_siswa');
+        $query=$this->db->get_where();
+        return $query;
+    }
     public function getujianbyabsen()
     {
         $this->db->select('*');
