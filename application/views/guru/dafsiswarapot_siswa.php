@@ -14,7 +14,7 @@
                <div class="col-md-12">
                   <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari data siswa..." name="keyword">
+                        <input type="text" class="form-control" placeholder="Cari data siswa..." name="keyword" autocomplete="off">
                       <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="Submit" id="button-addon2">Cari</button>
                       </div>

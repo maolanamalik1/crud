@@ -10,7 +10,7 @@
       <!--akhir judul-->
 
       <!--tambah siswa-->
-      <div class="row mt-4">
+      <div class="row mt-2">
         <div class="col-md-2">
         <a href="<?=base_url(); ?>siswaguru/tambahrekap/<?= $iip['absen']; ?>" class="btn btn-primary">+ Tambah rekab absen </a>
         </div>
@@ -32,15 +32,21 @@
       <!--akhir vali-->
       <!--table-->
       <div class="row">
-        <div class="col-md-11">
-            <table class="table table-bordered mt-2 mb-5">
-              <thead class="thead-dark">
+        <div class="col-md-12 mt-2">
+        <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Nilai ujian</h3>
+                </div>
+                <!--card body-->
+              <div class="card-body table-responsive p-0" style="height: 400px;">
+            <table class="table table-head-fixed">
+              <thead>
                 <tr>
-                  <th scope="col">id</th>
-                  <th scope="col">Hari</th>
-                  <th scope="col">tanggal</th>
-                  <th scope="col">keterangan</th>
-                  <th scope="col">Action</th>
+                  <th>id</th>
+                  <th>Hari</th>
+                  <th>tanggal</th>
+                  <th>keterangan</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -67,10 +73,18 @@
                 <?php endforeach; ?>
               </tbody>
             </table>
+            </div>
+            </div>
           </div>
         </div>
       <!--Akhir-table-->
-          
+      <div class="row mt-2 mb-3">
+            <div class="col-md-10">
+            </div>
+            <div class="col=md-2">
+            <a href="<?= base_url(); ?>siswaguru/rekap" class="btn btn-success mb-2"><-Kembali</a>
+            </div>
+      </div>
         
     </section>
 </div>

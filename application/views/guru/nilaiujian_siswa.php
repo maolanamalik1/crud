@@ -12,7 +12,7 @@
       <!--tambah siswa-->
       <div class="row mt-2">
         <div class="col-md-2">
-        <a href="<?=base_url(); ?>siswaguru/tambahnilaiujian/<?= $iip['absen']; ?>" class="btn btn-primary">+Tambah nilai ujian</a>
+        <a href="<?=base_url(); ?>siswaguru/tambahnilaiujian/<?= $iip['absen']; ?>" class="btn btn-primary">+Tambah nilai ulangan</a>
         </div>
       </div>
       <!--khir tambah siswa-->
@@ -35,7 +35,7 @@
         <div class="col-md-12 mt-2">
         <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Nilai ujian</h3>
+                <h3 class="card-title">Nilai ulangan</h3>
                 </div>
                 <!--card body-->
               <div class="card-body table-responsive p-0" style="height: 400px;">
@@ -90,7 +90,13 @@
           </div>
         </div>
       <!--Akhir-table-->
-          
+      <div class="row mt-2 mb-3">
+            <div class="col-md-10">
+            </div>
+            <div class="col=md-2">
+            <a href="<?= base_url(); ?>siswaguru/nilaiujian" class="btn btn-success mb-2"><-Kembali</a>
+            </div>
+      </div>
         
     </section>
 </div>

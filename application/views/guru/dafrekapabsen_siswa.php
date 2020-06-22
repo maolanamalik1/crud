@@ -1,5 +1,6 @@
 <div class="content-wrapper">
     <section class="content">
+    <div class="container-fluid">
       <!--judul-->
       <title><?php echo $judul;?></title>
       <div class="row">
@@ -10,10 +11,10 @@
       <!--akhir judul-->
       <!--sarch-->
             <div class="row mt-3">
-               <div class="col-md-10">
+               <div class="col-md-12">
                   <form action="" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari data siswa..." name="keyword">
+                        <input type="text" class="form-control" placeholder="Cari data siswa..." name="keyword" autocomplete="off">
                       <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="Submit" id="button-addon2">Cari</button>
                       </div>
@@ -45,7 +46,7 @@
             <!--validasi-->
             <?php if($this->session->flashdata('flash')) : ?>
       <div class="row mt-3">
-        <div class="col-sm-11">
+        <div class="col-sm-12">
         <div class="alert alert-success alert-dismissible fade show" role="alert">Raport siswa
             <strong>berhasil</strong> <?= $this->session->flashdata('flash'); ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -58,16 +59,22 @@
       <!--akhir vali-->
       <!--table-->
       <div class="row">
-        <div class="col-md-11">
-            <table class="table table-bordered mt-2 mb-5">
-              <thead class="thead-dark">
+        <div class="col-md-12">
+        <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Daftar siswa</h3>
+                </div>
+                <!--card body-->
+              <div class="card-body table-responsive p-0" style="height: 400px;">
+            <table class="table table-head-fixed">
+              <thead>
                 <tr>
-                  <th scope="col">id</th>
-                  <th scope="col">Absen</th>
-                  <th scope="col">Foto</th>
-                  <th scope="col">Nama</th>
-                  <th scope="col">Kelas</th>
-                  <th scope="col">Action</th>
+                  <th>id</th>
+                  <th>Absen</th>
+                  <th>Foto</th>
+                  <th>Nama</th>
+                  <th>Kelas</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,15 +97,17 @@
                 <?php endforeach; ?>
               </tbody>
             </table>
-          </div>
-        </div>
-            <!--pagination-->
-            <div class="row mb-5">
+            </div>
+            <!--footer-->
+            <div class="card-footer clearfix">
             <?= $this->pagination->create_links(); ?>
             </div>
-            <!--akhr-->
+            <!--footer-->
+            </div>
+          </div>
+        </div>
       <!--Akhir-table-->
           
-        
+        </div>
     </section>
 </div>

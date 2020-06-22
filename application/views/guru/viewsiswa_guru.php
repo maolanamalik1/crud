@@ -59,6 +59,7 @@
                 <div>
             </div>
             <!---->
+            <a href="<?= base_url(); ?>siswaguru" class="btn btn-success mb-2"><-Kembali</a>
     </section>
 </div>
     <!-- /.content-header -->
