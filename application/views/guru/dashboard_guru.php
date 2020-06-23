@@ -9,19 +9,46 @@
           </div>
     <!--Akhir Judul-->
     <!--jumbotron-->
-          <div class="row">
-            <div class="col-md-12">
-            <div class="jumbotron jumbotron-fluid">
-              <div class="container">
-                <h1 class="display-4">Selamat datang<br>di web data sekolah</h1>
-                <p class="lead"> </p>
+    <div class="row">
+            <div class="col-md-12 b-2">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="<?=base_url(); ?>assets/foto/p1.jpg"width="200" height="500" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>Selamat datang di website<br>Data siswa</h5>
+                <p></p>
+              </div>
+              </div>
+              <div class="carousel-item">
+                <img src="<?=base_url(); ?>assets/foto/p3.jpg"width="200" height="500" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>Selamat datang di website<br>Data siswa</h5>
+                <p></p>
+              </div>
+              </div>
+              <div class="carousel-item">
+              <img src="<?=base_url(); ?>assets/foto/p2.png"width="200" height="500" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>Selamat datang di website<br>Data siswa</h5>
+                <p></p>
+              </div>
               </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
             </div>
           </div>
     <!--akhir jumbotron-->
     <!--widget-->
-    <div class="row">
+    <div class="row mt-2">
       <div class="col-md-6">
             <!-- small box -->
             <div class="small-box bg-info">

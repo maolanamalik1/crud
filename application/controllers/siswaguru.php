@@ -513,6 +513,24 @@ class siswaguru extends CI_Controller{
 		$filename = 'report_'.time();
 		$this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
     }
+	    public function pdfgeneratorsemester1($absen){
+        $this->load->library('pdfgenerator');
+		$this->load->model('datasiswa_model');
+        $data['iip']= $this->datasiswa_model->getall($absen);
+        $data['oop']=$this->datasiswa_model->getujian1($absen);
+    $html = $this->load->view('guru/semester1pdf', $data, true);
+    $filename = 'report_'.time();
+    $this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
+    }
+    public function pdfgeneratorsemester2($absen){
+        $this->load->library('pdfgenerator');
+		$this->load->model('datasiswa_model');
+        $data['iip']= $this->datasiswa_model->getall($absen);
+        $data['oop']=$this->datasiswa_model->getujian2($absen);
+    $html = $this->load->view('guru/semester2pdf', $data, true);
+    $filename = 'report_'.time();
+    $this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
+    }
     public function excelrapot($absen){
         $this->load->model('datasiswa_model');
         $data['oop']=$this->datasiswa_model->getraportSiswabyab($absen)->result();
